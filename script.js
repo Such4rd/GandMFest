@@ -121,6 +121,12 @@
       return;
     }
 
+    if (!cancion) {
+      showToast('Canción obligatoria para tenerte en nuestra playlist 🤘🎧', 'error');
+      flash('cancion');
+      return;
+    }
+
     const payload = {
       id: invitadoId,
       asistencia: asistencia,
