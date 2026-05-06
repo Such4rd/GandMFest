@@ -90,6 +90,23 @@
     if (el) el.remove();
   }
 
+  function showToast(message, type = 'info') {
+
+    const toast = document.getElementById('toast');
+
+    toast.textContent = message;
+
+    toast.className = '';
+    toast.classList.add(type);
+    toast.classList.add('show');
+
+    clearTimeout(toast._timeout);
+
+    toast._timeout = setTimeout(() => {
+      toast.classList.remove('show');
+    }, 3500);
+  }
+
   // SUBMIT
   async function submitRSVP() {
     const asistencia = document.getElementById('r-si').checked ? 'si' : 'no';
@@ -100,7 +117,7 @@
     const ninos = obtenerTextoNinos();
 
     if (!invitadoId) {
-      alert('Falta el ID del invitado en el enlace.');
+      showToast('Falta el ID del invitado en el enlace.','error');
       return;
     }
 
@@ -121,7 +138,7 @@
     const result = await response.json();
 
     if (!result.success) {
-      alert(result.message);
+      showToast(result.message, 'error');
       return;
     }
 
@@ -131,8 +148,35 @@
     s.style.animation = 'fadeUp 0.6s ease both';
   }
 
-  function submitNoAsiste() {
+  async function submitNoAsiste() {
+    if (!invitadoId) {
+      showToast('Falta el ID del invitado en el enlace.', 'error');
+      return;
+    }
+
+    const payload = {
+      id: invitadoId,
+      asistencia: 'no',
+      intolerancias: '',
+      acompanante: 'no',
+      ninos: '',
+      cancion: ''
+    };
+
+    const response = await fetch(APPS_SCRIPT_URL, {
+      method: 'POST',
+      body: JSON.stringify(payload)
+    });
+
+    const result = await response.json();
+
+    if (!result.success) {
+      showToast(result.message, 'error');
+      return;
+    }
+
     document.getElementById('the-form').style.display = 'none';
+
     const s = document.getElementById('form-no-asiste');
     s.style.display = 'block';
     s.style.animation = 'fadeUp 0.6s ease both';
@@ -152,6 +196,8 @@
     const tag = document.querySelector('.hero-tag');
     tag.textContent = '// SAVE THE DATE — HOLA ' + decodeURIComponent(invitado).toUpperCase() + ' 👋';
   }
+
+
 
 
   //formulario
