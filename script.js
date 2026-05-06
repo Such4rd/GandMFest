@@ -1,3 +1,8 @@
+  const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbze8-z6p-uy_JQEQPr26mJCnh3_ORUeVgFnEOV1jJuudvyRQgrgFkZ3nYcT82KH3-dY/exec';
+
+  const params = new URLSearchParams(window.location.search);
+  const invitadoId = params.get('id');
+
   // COUNTDOWN
   function updateCountdown() {
     const target = new Date('2026-10-17T11:00:00').getTime();
@@ -86,7 +91,40 @@
   }
 
   // SUBMIT
-  function submitRSVP() {
+  async function submitRSVP() {
+    const asistencia = document.getElementById('r-si').checked ? 'si' : 'no';
+    const acompanante = document.getElementById('a-si').checked ? 'si' : 'no';
+
+    const intolerancias = document.getElementById('intolerancias')?.value.trim() || '';
+    const cancion = document.getElementById('cancion')?.value.trim() || '';
+    const ninos = obtenerTextoNinos();
+
+    if (!invitadoId) {
+      alert('Falta el ID del invitado en el enlace.');
+      return;
+    }
+
+    const payload = {
+      id: invitadoId,
+      asistencia: asistencia,
+      intolerancias: intolerancias,
+      acompanante: acompanante,
+      ninos: ninos,
+      cancion: cancion
+    };
+
+    const response = await fetch(APPS_SCRIPT_URL, {
+      method: 'POST',
+      body: JSON.stringify(payload)
+    });
+
+    const result = await response.json();
+
+    if (!result.success) {
+      alert(result.message);
+      return;
+    }
+
     document.getElementById('the-form').style.display = 'none';
     const s = document.getElementById('form-success');
     s.style.display = 'block';
@@ -109,9 +147,28 @@
   }
 
   // URL param invitado
-  const params = new URLSearchParams(window.location.search);
   const invitado = params.get('invitado');
   if (invitado) {
     const tag = document.querySelector('.hero-tag');
     tag.textContent = '// SAVE THE DATE — HOLA ' + decodeURIComponent(invitado).toUpperCase() + ' 👋';
   }
+
+
+  //formulario
+  function obtenerTextoNinos() {
+  const rows = document.querySelectorAll('#children-list .companion-row');
+
+  const ninos = [];
+
+  rows.forEach(row => {
+    const inputs = row.querySelectorAll('input');
+    const nombre = inputs[0]?.value.trim();
+    const edad = inputs[1]?.value.trim();
+
+    if (nombre) {
+      ninos.push(`${nombre}(${edad || 'sin edad'})`);
+    }
+  });
+
+  return ninos.join(',');
+}
