@@ -29,11 +29,10 @@
 
   <p class="hero-tag">// SAVE THE DATE — BODA 2026</p>
 
-  <h1 class="hero-names">
-    <span class="glitch" data-text="MARIO">MARIO</span>
-    <span class="amp">&</span>
-    <span class="glitch" data-text="GEMA">GEMA</span>
+  <h1 class="hero-names" aria-label="Mario y Gema">
+    <span class="name-left">MARIO</span><span class="amp">&</span><span class="name-right">GEMA</span>
   </h1>
+  <p class="hero-subtitle">Wedding fest</p>
 
   <p class="hero-date">
     <strong>SÁBADO 17 OCTUBRE 2026</strong>
@@ -61,9 +60,7 @@
     </div>
   </div>
 
-  <div class="hero-sketch" aria-label="Retrato lineal de Mario y Gema">
-    <img src="foto-skyline-mario-gema.png" alt="Dibujo estilo skyline de Mario y Gema"/>
-  </div>
+  <div class="hero-skyline" aria-label="Ilustración skyline Mario y Gema"></div>
 
   <div class="bpm-bar">
     <span></span><span></span><span></span><span></span><span></span>
@@ -292,17 +289,22 @@
             </div>
           </div>
 
-          <div class="guest-block">
+          <div class="guest-block children-counter-block">
             <div class="form-group">
-              <label>Número de hijos/as</label>
-              <input type="number" id="num-hijos" min="0" max="10" value="0" onchange="renderChildrenFields()" oninput="renderChildrenFields()"/>
+              <label>Hijos/as</label>
+              <div class="counter-control" aria-label="Contador de hijos/as">
+                <button type="button" class="counter-btn" onclick="changeChildrenCount(-1)" aria-label="Restar hijo/a">−</button>
+                <span class="counter-display" id="num-hijos-display">0</span>
+                <button type="button" class="counter-btn" onclick="changeChildrenCount(1)" aria-label="Sumar hijo/a">+</button>
+              </div>
+              <input type="hidden" id="num-hijos" value="0"/>
             </div>
             <div class="form-group helper-copy">
-              <span>Se generará una línea por cada hijo/a en la respuesta final.</span>
+              <span>Añade hijos/as con el contador. Solo aparecerán sus datos cuando el total sea mayor que 0.</span>
             </div>
           </div>
 
-          <div class="form-group full">
+          <div class="form-group full" id="children-data-group" style="display:none;">
             <label>Datos de hijos/as</label>
             <div class="companions-list" id="children-list"></div>
           </div>

@@ -47,10 +47,24 @@ function toggleAcompanante() {
   document.getElementById('acompanante-fields').style.display = visible ? 'grid' : 'none';
 }
 
+function changeChildrenCount(step) {
+  const input = document.getElementById('num-hijos');
+  const current = Number(input?.value || 0);
+  const next = Math.max(0, Math.min(10, current + step));
+  if (input) input.value = String(next);
+  renderChildrenFields();
+}
+
 function renderChildrenFields() {
-  const num = Math.max(0, Math.min(10, Number(document.getElementById('num-hijos')?.value || 0)));
+  const input = document.getElementById('num-hijos');
+  const num = Math.max(0, Math.min(10, Number(input?.value || 0)));
   const list = document.getElementById('children-list');
-  const current = list.querySelectorAll('.companion-row').length;
+  const group = document.getElementById('children-data-group');
+  const display = document.getElementById('num-hijos-display');
+  if (display) display.textContent = String(num);
+  if (group) group.style.display = num > 0 ? 'block' : 'none';
+
+  const current = list.querySelectorAll('.child-row').length;
 
   if (current < num) {
     for (let i = current + 1; i <= num; i++) {
@@ -72,7 +86,7 @@ function renderChildrenFields() {
   }
 
   if (current > num) {
-    Array.from(list.querySelectorAll('.companion-row')).slice(num).forEach(row => row.remove());
+    Array.from(list.querySelectorAll('.child-row')).slice(num).forEach(row => row.remove());
   }
 }
 
