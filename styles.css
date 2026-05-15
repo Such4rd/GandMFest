@@ -453,9 +453,12 @@
 
 @media (max-width: 720px) {
   .skyline-watermark {
-    width: 56vw;
-    bottom: 8px;
-    opacity: 0.16;
+    width: 84vw !important;
+    max-width: 84vw !important;
+    height: 78px !important;
+    background-size: 100% auto !important;
+    background-position: center bottom !important;
+    opacity: 0.52 !important;
   }
 }
 
