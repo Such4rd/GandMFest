@@ -511,3 +511,157 @@
 #toast.info {
   border-color: rgba(0,122,110,0.45);
 }
+/* Ajustes solicitados - invitación digital */
+.hero-names {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+  letter-spacing: 0.035em;
+  text-transform: uppercase;
+}
+
+.hero-names span.amp {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 500;
+  line-height: 0.72;
+}
+
+.hero-sketch {
+  width: min(78vw, 560px);
+  margin: 24px auto 56px;
+  position: relative;
+  z-index: 2;
+  opacity: 0.72;
+  animation: fadeUp 1s 0.8s ease both;
+  filter: grayscale(1) contrast(1.2);
+  mix-blend-mode: multiply;
+}
+
+.hero-sketch::before,
+.hero-sketch::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: min(14vw, 120px);
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(26,26,24,0.42));
+}
+
+.hero-sketch::before { right: calc(100% + 18px); }
+.hero-sketch::after {
+  left: calc(100% + 18px);
+  transform: rotate(180deg);
+}
+
+.hero-sketch img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+#extra-info {
+  position: relative;
+  background: var(--bg);
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.info-card {
+  border: 1px solid var(--border);
+  background: var(--surface);
+  padding: 28px;
+  position: relative;
+  overflow: hidden;
+}
+
+.info-card::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--acid), var(--cyan), var(--magenta));
+  opacity: 0.8;
+}
+
+.info-card h3 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 30px;
+  letter-spacing: 0.08em;
+  margin-bottom: 10px;
+  color: var(--text);
+}
+
+.info-card p {
+  font-size: 13px;
+  line-height: 1.65;
+  color: var(--text-muted);
+}
+
+.guest-block {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  padding: 18px;
+  border: 1px solid var(--border);
+  background: rgba(232, 228, 219, 0.55);
+}
+
+.helper-copy {
+  justify-content: end;
+}
+
+.helper-copy span {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 11px;
+  line-height: 1.7;
+  color: var(--text-muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.child-row {
+  padding: 14px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+}
+
+@media (max-width: 720px) {
+  nav {
+    left: 0;
+    right: 0;
+    justify-content: center;
+    gap: 12px;
+    padding: 14px 10px;
+    flex-wrap: wrap;
+  }
+
+  nav a {
+    font-size: 10px;
+    letter-spacing: 0.18em;
+  }
+
+  .hero-sketch {
+    width: min(88vw, 420px);
+    margin-top: 18px;
+    margin-bottom: 64px;
+  }
+
+  .hero-sketch::before,
+  .hero-sketch::after {
+    display: none;
+  }
+
+  .info-grid,
+  .guest-block {
+    grid-template-columns: 1fr;
+  }
+
+  .companion-row,
+  .child-row {
+    grid-template-columns: 1fr;
+  }
+}

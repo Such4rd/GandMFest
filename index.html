@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>SAVE THE DATE — MARIO & GEMA</title>
-  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Bebas+Neue&family=Inter:wght@300;400&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Bebas+Neue&family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="styles.css"/>
 </head>
 
@@ -13,8 +13,9 @@
 <div class="skyline-watermark" aria-hidden="true"></div>
 
 <nav>
-  <a href="#plan">Programa</a>
-  <a href="#location">Lugar</a>
+  <a href="#plan">Itinerario</a>
+  <a href="#location">Evento</a>
+  <a href="#extra-info">Info extra</a>
   <a href="#rsvp">RSVP</a>
 </nav>
 
@@ -35,7 +36,7 @@
   </h1>
 
   <p class="hero-date">
-    <strong>SÁBADO 17 OCTUBRE 2026</strong> — DOORS OPEN 11:00H
+    <strong>SÁBADO 17 OCTUBRE 2026</strong>
   </p>
 
   <div class="counter-wrap">
@@ -60,6 +61,10 @@
     </div>
   </div>
 
+  <div class="hero-sketch" aria-label="Retrato lineal de Mario y Gema">
+    <img src="foto-skyline-mario-gema.png" alt="Dibujo estilo skyline de Mario y Gema"/>
+  </div>
+
   <div class="bpm-bar">
     <span></span><span></span><span></span><span></span><span></span>
     <span></span><span></span><span></span><span></span><span></span>
@@ -73,8 +78,8 @@
 <!-- PLAN -->
 <div id="plan">
   <div>
-    <p class="section-label">// PROGRAMA</p>
-    <h2 class="section-title">LINEUP<br>DEL DÍA</h2>
+    <p class="section-label">//</p>
+    <h2 class="section-title">ITINERARIO<br>DEL DÍA</h2>
 
     <div class="timeline">
 
@@ -160,7 +165,7 @@
 <!-- LOCATION -->
 <section id="location">
   <p class="section-label">// LOCALIZACIÓN</p>
-  <h2 class="section-title">VENUE</h2>
+  <h2 class="section-title">EVENTO</h2>
 
   <div class="loc-card">
     <div class="loc-address">
@@ -178,6 +183,35 @@
       <span class="map-icon">📍</span>
       <span class="map-label">ABRIR EN GOOGLE MAPS</span>
     </a>
+  </div>
+</section>
+
+
+<!-- EXTRA INFO -->
+<section id="extra-info">
+  <p class="section-label">// INFORMACIÓN EXTRA</p>
+  <h2 class="section-title">INFO<br>ÚTIL</h2>
+
+  <div class="info-grid">
+    <article class="info-card">
+      <h3>PELUQUERÍAS</h3>
+      <p>Recomendaciones cercanas para peinado y maquillaje. Sustituye este texto por nombres, teléfonos y enlaces de reserva.</p>
+    </article>
+
+    <article class="info-card">
+      <h3>CAFETERÍAS</h3>
+      <p>Opciones para desayunar o tomar algo antes del evento. Añade horarios y ubicaciones cuando los tengas cerrados.</p>
+    </article>
+
+    <article class="info-card">
+      <h3>ALOJAMIENTOS</h3>
+      <p>Hoteles, apartamentos o casas rurales recomendadas para invitados que vengan de fuera.</p>
+    </article>
+
+    <article class="info-card">
+      <h3>TRANSPORTE</h3>
+      <p>Información de buses, puntos de recogida, horarios y vuelta. Se actualizará con la planificación definitiva.</p>
+    </article>
   </div>
 </section>
 
@@ -204,45 +238,83 @@
           </div>
         </div>
 
+        <div class="form-group">
+          <label>Nombre invitado/a</label>
+          <input type="text" id="nombre-invitado" placeholder="Nombre y apellidos" required/>
+        </div>
+
+        <div class="form-group">
+          <label>Invitado/a de</label>
+          <select id="invitado-de" required>
+            <option value="">Seleccionar</option>
+            <option value="Mario">Mario</option>
+            <option value="Gema">Gema</option>
+          </select>
+        </div>
+
+        <div class="form-group full">
+          <label>Correo electrónico</label>
+          <input type="email" id="email-confirmacion" placeholder="correo@ejemplo.com"/>
+        </div>
+
         <!-- Mensaje no asistencia -->
         <div id="no-asiste-msg">
           <strong>Qué pena... 😢</strong>
           Nos hubiera encantado tenerte con nosotros en este día tan especial.
-          Si en algún momento cambias de idea, aquí seguimos. ¡Gracias por avisarnos con cariño!
+          Gracias por avisarnos.
         </div>
 
-        <!-- Sección acompañantes (visible si asiste) -->
+        <!-- Sección asistentes: misma estructura para todos los invitados -->
         <div id="acompanantes-section" class="show">
 
           <div class="form-group full" style="margin-top:0">
-            <label>Acompañante </label>
+            <label>¿Vienes con acompañante?</label>
             <div class="radio-group">
-            <label class="radio-option">
-              <input type="radio" name="company" value="si" id="a-si" checked/>
-              <span>✓ SÍ </span>
-            </label>
-            <label class="radio-option">
-              <input type="radio" name="company" value="no" id="a-no"/>
-              <span>✗ NO </span>
-            </label>
+              <label class="radio-option">
+                <input type="radio" name="company" value="si" id="a-si" onchange="toggleAcompanante()"/>
+                <span>✓ SÍ</span>
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="company" value="no" id="a-no" onchange="toggleAcompanante()" checked/>
+                <span>✗ NO</span>
+              </label>
+            </div>
           </div>
+
+          <div id="acompanante-fields" class="guest-block" style="display:none;">
+            <div class="form-group">
+              <label>Nombre acompañante</label>
+              <input type="text" id="nombre-acompanante" placeholder="Nombre y apellidos"/>
+            </div>
+            <div class="form-group">
+              <label>Alergias acompañante</label>
+              <input type="text" id="alergias-acompanante" placeholder="Ninguna / indicar alergias"/>
+            </div>
+          </div>
+
+          <div class="guest-block">
+            <div class="form-group">
+              <label>Número de hijos/as</label>
+              <input type="number" id="num-hijos" min="0" max="10" value="0" onchange="renderChildrenFields()" oninput="renderChildrenFields()"/>
+            </div>
+            <div class="form-group helper-copy">
+              <span>Se generará una línea por cada hijo/a en la respuesta final.</span>
+            </div>
           </div>
 
           <div class="form-group full">
-            <label>Hijos </label>
+            <label>Datos de hijos/as</label>
             <div class="companions-list" id="children-list"></div>
-            <button type="button" class="btn-add-comp" onclick="addChild()">+ Añadir hijo/a</button>
           </div>
 
           <div class="form-group full">
-            <label>Intolerancias / Alergias</label>
-            <textarea id="intolerancias" placeholder="Indica cualquier intolerancia o alergia alimentaria del grupo..."></textarea>
+            <label>Intolerancias / alergias del invitado/a</label>
+            <textarea id="intolerancias" placeholder="Indica tus intolerancias o alergias alimentarias. Si no tienes, escribe Ninguna."></textarea>
           </div>
 
-          
           <div class="form-group full">
             <label>Canción para el festival</label>
-            <textarea id="cancion" placeholder="La añadiremos a la playlist de la boda (un poco de criterio)..."></textarea>
+            <textarea id="cancion" placeholder="La añadiremos a la playlist de la boda..."></textarea>
           </div>
 
           <button class="btn-submit" onclick="submitRSVP()">CONFIRMAR ASISTENCIA →</button>
