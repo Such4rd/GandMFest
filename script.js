@@ -47,6 +47,22 @@ function toggleAcompanante() {
   document.getElementById('acompanante-fields').style.display = visible ? 'grid' : 'none';
 }
 
+function toggleNinos() {
+  const si = document.getElementById('ninos-si')?.checked;
+  const counterBlock = document.getElementById('children-counter-block');
+  const input = document.getElementById('num-hijos');
+
+  if (counterBlock) counterBlock.style.display = si ? 'grid' : 'none';
+
+  if (!si) {
+    if (input) input.value = '0';
+    const list = document.getElementById('children-list');
+    if (list) list.innerHTML = '';
+  }
+
+  renderChildrenFields();
+}
+
 function changeChildrenCount(step) {
   const input = document.getElementById('num-hijos');
   const current = Number(input?.value || 0);
@@ -62,7 +78,7 @@ function renderChildrenFields() {
   const group = document.getElementById('children-data-group');
   const display = document.getElementById('num-hijos-display');
   if (display) display.textContent = String(num);
-  if (group) group.style.display = num > 0 ? 'block' : 'none';
+  if (group) group.style.display = (document.getElementById('ninos-si')?.checked && num > 0) ? 'block' : 'none';
 
   const current = list.querySelectorAll('.child-row').length;
 
@@ -130,6 +146,7 @@ function validateBaseFields() {
 }
 
 function obtenerHijos() {
+  if (!document.getElementById('ninos-si')?.checked) return [];
   return Array.from(document.querySelectorAll('#children-list .child-row')).map((row, idx) => ({
     tipo: 'HIJO/A',
     orden: idx + 1,
@@ -308,4 +325,5 @@ if (invitado) {
 
 toggleAsistencia();
 toggleAcompanante();
+toggleNinos();
 renderChildrenFields();

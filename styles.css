@@ -926,41 +926,88 @@ body {
   }
 }
 
-/* === AJUSTES: efecto letras + fondo rojizo === */
+
+/* =========================================================
+   Correcciones finales: skyline integrado, niños y festival
+   ========================================================= */
 :root {
+  --acid: #a84f42;
+  --acid-glow: #d57563;
+  --cyan: #7f3b35;
+  --magenta: #b85c4a;
   --red-soft: #b85c4a;
   --red-dark: #7f2f28;
   --red-muted: #c98a78;
-  --red-bg-1: #f2d8cf;
+  --red-bg-1: #f3d9d0;
   --red-bg-2: #f0ede6;
-  --red-bg-3: #e7c3b8;
+  --red-bg-3: #e8c3b8;
+}
+
+body {
+  position: relative;
+  cursor: default;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  inset: -18%;
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0.13;
+  background:
+    radial-gradient(circle at 18% 22%, rgba(168,79,66,0.34), transparent 24%),
+    radial-gradient(circle at 82% 34%, rgba(127,59,53,0.24), transparent 26%),
+    radial-gradient(circle at 42% 86%, rgba(213,117,99,0.28), transparent 28%),
+    linear-gradient(115deg, transparent 0%, rgba(255,255,255,0.16) 47%, transparent 54%);
+  mix-blend-mode: multiply;
+  animation: festivalAmbient 11s ease-in-out infinite alternate;
+}
+
+@keyframes festivalAmbient {
+  0% { transform: translate3d(-1.5%, -1%, 0) rotate(-1deg) scale(1); opacity: 0.09; }
+  50% { transform: translate3d(1%, 1.2%, 0) rotate(1deg) scale(1.03); opacity: 0.15; }
+  100% { transform: translate3d(1.5%, -0.8%, 0) rotate(-0.5deg) scale(1.01); opacity: 0.12; }
 }
 
 #hero {
-  background: linear-gradient(
-    170deg,
-    var(--red-bg-1) 0%,
-    var(--red-bg-2) 42%,
-    var(--red-bg-3) 100%
-  );
+  background: linear-gradient(170deg, var(--red-bg-1) 0%, var(--red-bg-2) 42%, var(--red-bg-3) 100%) !important;
 }
 
 .grid-bg {
   background-image:
-    linear-gradient(rgba(127,47,40,0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(127,47,40,0.08) 1px, transparent 1px);
+    linear-gradient(rgba(127,47,40,0.075) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(127,47,40,0.075) 1px, transparent 1px) !important;
 }
 
-.orb-1 {
-  background: rgba(184, 92, 74, 0.16);
+.orb-1 { background: rgba(184,92,74,0.16) !important; }
+.orb-2 { background: rgba(127,47,40,0.10) !important; }
+.orb-3 { background: rgba(201,138,120,0.12) !important; }
+
+.hero-names {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 0;
+  font-family: 'Cormorant Garamond', serif !important;
+  font-weight: 600;
+  font-size: clamp(58px, 12vw, 132px);
+  line-height: 0.9;
+  letter-spacing: -0.055em;
+  text-transform: uppercase;
+  color: #201b18;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.35);
 }
 
-.orb-2 {
-  background: rgba(127, 47, 40, 0.10);
-}
-
-.orb-3 {
-  background: rgba(201, 138, 120, 0.12);
+.hero-names .name-left { margin-right: -0.06em; }
+.hero-names .name-right { margin-left: -0.02em; }
+.hero-names .amp {
+  display: inline-block;
+  margin: 0 -0.11em 0 -0.07em;
+  font-size: 0.96em;
+  line-height: 0.92;
+  color: var(--acid);
+  font-family: 'Cormorant Garamond', serif !important;
 }
 
 .glitch {
@@ -980,7 +1027,6 @@ body {
   font-size: inherit;
   font-weight: inherit;
   letter-spacing: inherit;
-  line-height: inherit;
   pointer-events: none;
 }
 
@@ -996,46 +1042,83 @@ body {
   clip-path: polygon(0 65%, 100% 65%, 100% 100%, 0 100%);
 }
 
-@keyframes glitch1 {
-  0%, 90%, 100% {
-    transform: translate(0);
-    opacity: 0;
-  }
-
-  92% {
-    transform: translate(-4px, 2px);
-    opacity: 0.45;
-  }
-
-  94% {
-    transform: translate(4px, -1px);
-    opacity: 0.45;
-  }
-
-  96% {
-    transform: translate(-2px, 0);
-    opacity: 0.45;
-  }
+.skyline-watermark {
+  position: fixed !important;
+  left: 50% !important;
+  bottom: max(18px, env(safe-area-inset-bottom)) !important;
+  transform: translateX(-50%) !important;
+  width: min(84vw, 980px) !important;
+  aspect-ratio: 1072 / 144 !important;
+  height: auto !important;
+  background-image: url('skyline-mario-gema-clean.png') !important;
+  background-repeat: no-repeat !important;
+  background-position: center bottom !important;
+  background-size: contain !important;
+  background-color: transparent !important;
+  opacity: 0.78 !important;
+  filter: contrast(1.38) saturate(0.8) !important;
+  mix-blend-mode: multiply !important;
+  pointer-events: none !important;
+  user-select: none !important;
+  z-index: 3 !important;
 }
 
-@keyframes glitch2 {
-  0%, 90%, 100% {
-    transform: translate(0);
-    opacity: 0;
+.counter-control-small {
+  padding: 5px 8px;
+  gap: 8px;
+}
+
+.counter-control-small .counter-btn,
+.counter-btn {
+  width: 30px;
+  height: 30px;
+  font-size: 22px;
+  line-height: 1;
+}
+
+.counter-control-small .counter-display,
+.counter-display {
+  min-width: 22px;
+  font-size: 30px;
+  line-height: 1;
+}
+
+#children-counter-block {
+  animation: fadeUp 0.35s ease both;
+}
+
+#children-data-group {
+  animation: fadeUp 0.35s ease both;
+}
+
+@media (max-width: 720px) {
+  body::after {
+    opacity: 0.10;
+    inset: -24%;
   }
 
-  93% {
-    transform: translate(4px, 1px);
-    opacity: 0.45;
+  .hero-names {
+    font-size: clamp(50px, 14vw, 88px);
+    letter-spacing: -0.045em;
   }
 
-  95% {
-    transform: translate(-3px, -2px);
-    opacity: 0.45;
+  .skyline-watermark {
+    width: 84vw !important;
+    max-width: 84vw !important;
+    bottom: calc(42px + env(safe-area-inset-bottom)) !important;
+    opacity: 0.82 !important;
+    background-size: contain !important;
   }
 
-  97% {
-    transform: translate(2px, 0);
-    opacity: 0.45;
+  .counter-control-small .counter-btn,
+  .counter-btn {
+    width: 28px;
+    height: 28px;
+    font-size: 20px;
+  }
+
+  .counter-control-small .counter-display,
+  .counter-display {
+    font-size: 28px;
   }
 }

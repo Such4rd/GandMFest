@@ -30,11 +30,8 @@
   <p class="hero-tag">// SAVE THE DATE — BODA 2026</p>
 
   <h1 class="hero-names" aria-label="Mario y Gema">
-  <h1 class="hero-names" aria-label="Mario y Gema">
-  <span class="name-left glitch" data-text="MARIO">MARIO</span>
-  <span class="amp">&</span>
-  <span class="name-right glitch" data-text="GEMA">GEMA</span>
-</h1>
+    <span class="name-left glitch" data-text="MARIO">MARIO</span><span class="amp">&</span><span class="name-right glitch" data-text="GEMA">GEMA</span>
+  </h1>
   <p class="hero-subtitle">Wedding fest</p>
 
   <p class="hero-date">
@@ -62,6 +59,8 @@
       <span class="counter-label">Seg</span>
     </div>
   </div>
+
+  <div class="hero-skyline" aria-label="Ilustración skyline Mario y Gema"></div>
 
   <div class="bpm-bar">
     <span></span><span></span><span></span><span></span><span></span>
@@ -290,10 +289,24 @@
             </div>
           </div>
 
-          <div class="guest-block children-counter-block">
+          <div class="form-group full" style="margin-top:0">
+            <label>¿Vienen niños/as?</label>
+            <div class="radio-group">
+              <label class="radio-option">
+                <input type="radio" name="ninos" value="si" id="ninos-si" onchange="toggleNinos()"/>
+                <span>✓ SÍ</span>
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="ninos" value="no" id="ninos-no" onchange="toggleNinos()" checked/>
+                <span>✗ NO</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="guest-block children-counter-block" id="children-counter-block" style="display:none;">
             <div class="form-group">
-              <label>Hijos/as</label>
-              <div class="counter-control" aria-label="Contador de hijos/as">
+              <label>Número de hijos/as</label>
+              <div class="counter-control counter-control-small" aria-label="Contador de hijos/as">
                 <button type="button" class="counter-btn" onclick="changeChildrenCount(-1)" aria-label="Restar hijo/a">−</button>
                 <span class="counter-display" id="num-hijos-display">0</span>
                 <button type="button" class="counter-btn" onclick="changeChildrenCount(1)" aria-label="Sumar hijo/a">+</button>
@@ -301,7 +314,7 @@
               <input type="hidden" id="num-hijos" value="0"/>
             </div>
             <div class="form-group helper-copy">
-              <span>Añade hijos/as con el contador. Solo aparecerán sus datos cuando el total sea mayor que 0.</span>
+              <span>Añade hijos/as con el contador. Si marcas NO, no se mostrarán estos campos.</span>
             </div>
           </div>
 
