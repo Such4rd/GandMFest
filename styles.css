@@ -432,35 +432,34 @@
       .companion-row { grid-template-columns:1fr auto; }
       .companion-row .form-group:nth-child(2) { grid-column:1; }
     }
-    .skyline-watermark {
-  position: fixed;
-  left: 50%;
-  bottom: max(10px, env(safe-area-inset-bottom));
-  transform: translateX(-50%);
-  width: min(96vw, 1100px);
-  opacity: 0.18;
-  pointer-events: none;
-  user-select: none;
-  z-index: 1;
-}
 
-.skyline-watermark img {
-  display: block;
-  width: 100%;
-  height: auto;
-  filter: grayscale(1) contrast(1.2);
-}
-
-@media (max-width: 720px) {
-  .skyline-watermark {
-    width: 84vw !important;
-    max-width: 84vw !important;
-    height: 78px !important;
-    background-size: 100% auto !important;
-    background-position: center bottom !important;
-    opacity: 0.52 !important;
-  }
-}
+    @media (max-width:600px) {
+      .skyline-watermark {
+        width: 150vw;
+        height: 100px;
+        bottom: 28px;
+        opacity: 0.055;
+      }
+    }
+	
+	  .skyline-watermark {
+      position: fixed;
+      left: 50%;
+      bottom: clamp(36px, 7vh, 90px);
+      width: min(92vw, 1280px);
+      height: clamp(70px, 14vw, 170px);
+      transform: translateX(-50%);
+      background-image: url('skyline-mario-gema.png');
+      background-repeat: no-repeat;
+      background-position: center bottom;
+      background-size: contain;
+      opacity: 0.075;
+      filter: grayscale(1) contrast(1.15);
+      mix-blend-mode: multiply;
+      pointer-events: none;
+      user-select: none;
+      z-index: 1;
+    }
 
     #toast {
       position: fixed;
@@ -845,5 +844,198 @@ body {
 
   .children-counter-block .helper-copy {
     justify-content: start;
+  }
+}
+
+/* Skyline completo en móvil: ajuste final */
+.skyline-watermark {
+  position: fixed;
+  left: 50%;
+  bottom: max(12px, env(safe-area-inset-bottom));
+  transform: translateX(-50%);
+  width: min(96vw, 1180px);
+  aspect-ratio: 1072 / 144;
+  height: auto;
+  background-image: url('skyline-mario-gema.png');
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  background-size: contain;
+  opacity: 0.34;
+  filter: grayscale(1) contrast(1.65);
+  pointer-events: none;
+  user-select: none;
+  z-index: 1;
+  mix-blend-mode: normal;
+}
+
+@media (max-width: 720px) {
+  .skyline-watermark {
+    position: fixed;
+    left: 50%;
+    bottom: max(10px, env(safe-area-inset-bottom));
+    transform: translateX(-50%);
+    width: 96vw;
+    aspect-ratio: 1072 / 144;
+    height: auto;
+    background-size: contain;
+    background-position: center bottom;
+    opacity: 0.42;
+    filter: grayscale(1) contrast(1.8);
+    mix-blend-mode: normal;
+  }
+}
+
+/* Corrección definitiva: skyline siempre completo en móvil.
+   Se reduce el ancho para dejar margen real a ambos lados y se ajusta por ancho, no por alto. */
+.skyline-watermark {
+  position: fixed !important;
+  left: 50% !important;
+  right: auto !important;
+  bottom: max(12px, env(safe-area-inset-bottom)) !important;
+  transform: translateX(-50%) !important;
+
+  width: min(92vw, 1120px) !important;
+  max-width: 92vw !important;
+  height: clamp(56px, 12vw, 150px) !important;
+  aspect-ratio: auto !important;
+
+  background-image: url('skyline-mario-gema.png') !important;
+  background-repeat: no-repeat !important;
+  background-position: center bottom !important;
+  background-size: 100% auto !important;
+
+  opacity: 0.34 !important;
+  filter: grayscale(1) contrast(1.7) !important;
+  mix-blend-mode: normal !important;
+  pointer-events: none !important;
+  user-select: none !important;
+  overflow: visible !important;
+  z-index: 1 !important;
+}
+
+@media (max-width: 720px) {
+  .skyline-watermark {
+    width: 84vw !important;
+    max-width: 84vw !important;
+    height: 78px !important;
+    bottom: max(10px, env(safe-area-inset-bottom)) !important;
+    background-size: 100% auto !important;
+    background-position: center bottom !important;
+    opacity: 0.52 !important;
+    filter: grayscale(1) contrast(1.95) !important;
+  }
+}
+
+/* === AJUSTES: efecto letras + fondo rojizo === */
+:root {
+  --red-soft: #b85c4a;
+  --red-dark: #7f2f28;
+  --red-muted: #c98a78;
+  --red-bg-1: #f2d8cf;
+  --red-bg-2: #f0ede6;
+  --red-bg-3: #e7c3b8;
+}
+
+#hero {
+  background: linear-gradient(
+    170deg,
+    var(--red-bg-1) 0%,
+    var(--red-bg-2) 42%,
+    var(--red-bg-3) 100%
+  );
+}
+
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(127,47,40,0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(127,47,40,0.08) 1px, transparent 1px);
+}
+
+.orb-1 {
+  background: rgba(184, 92, 74, 0.16);
+}
+
+.orb-2 {
+  background: rgba(127, 47, 40, 0.10);
+}
+
+.orb-3 {
+  background: rgba(201, 138, 120, 0.12);
+}
+
+.glitch {
+  position: relative;
+  display: inline-block;
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  letter-spacing: inherit;
+  line-height: inherit;
+  pointer-events: none;
+}
+
+.glitch::before {
+  color: var(--red-soft);
+  animation: glitch1 3s infinite;
+  clip-path: polygon(0 0, 100% 0, 100% 35%, 0 35%);
+}
+
+.glitch::after {
+  color: var(--red-dark);
+  animation: glitch2 3s infinite;
+  clip-path: polygon(0 65%, 100% 65%, 100% 100%, 0 100%);
+}
+
+@keyframes glitch1 {
+  0%, 90%, 100% {
+    transform: translate(0);
+    opacity: 0;
+  }
+
+  92% {
+    transform: translate(-4px, 2px);
+    opacity: 0.45;
+  }
+
+  94% {
+    transform: translate(4px, -1px);
+    opacity: 0.45;
+  }
+
+  96% {
+    transform: translate(-2px, 0);
+    opacity: 0.45;
+  }
+}
+
+@keyframes glitch2 {
+  0%, 90%, 100% {
+    transform: translate(0);
+    opacity: 0;
+  }
+
+  93% {
+    transform: translate(4px, 1px);
+    opacity: 0.45;
+  }
+
+  95% {
+    transform: translate(-3px, -2px);
+    opacity: 0.45;
+  }
+
+  97% {
+    transform: translate(2px, 0);
+    opacity: 0.45;
   }
 }
