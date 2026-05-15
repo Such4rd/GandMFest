@@ -432,24 +432,23 @@
       .companion-row { grid-template-columns:1fr auto; }
       .companion-row .form-group:nth-child(2) { grid-column:1; }
     }
-
-.skyline-watermark {
+    .skyline-watermark {
   position: fixed;
   left: 50%;
   bottom: max(10px, env(safe-area-inset-bottom));
   transform: translateX(-50%);
   width: min(96vw, 1100px);
-  aspect-ratio: 1072 / 144;
-  height: auto;
-  background-image: url('skyline-mario-gema.png');
-  background-repeat: no-repeat;
-  background-position: center bottom;
-  background-size: 100% auto;
   opacity: 0.18;
-  filter: grayscale(1) contrast(1.2);
   pointer-events: none;
   user-select: none;
   z-index: 1;
+}
+
+.skyline-watermark img {
+  display: block;
+  width: 100%;
+  height: auto;
+  filter: grayscale(1) contrast(1.2);
 }
 
 @media (max-width: 720px) {
@@ -457,7 +456,6 @@
     width: 96vw;
     bottom: 8px;
     opacity: 0.16;
-    background-size: 100% auto;
   }
 }
 
