@@ -1293,3 +1293,74 @@ body::after {
     height: 10px !important;
   }
 }
+
+/* ====== HOTFIX FINAL USER — quitar foto, poner skyline y compactar bloque ====== */
+.hero-skyline {
+  background-image: url('skyline-mario-gema-clean.png') !important;
+  background-repeat: no-repeat !important;
+  background-position: center center !important;
+  background-size: contain !important;
+  filter: sepia(1) saturate(1700%) hue-rotate(320deg) brightness(0.88) contrast(0.98) !important;
+  opacity: 0.96 !important;
+}
+
+@media (max-width: 720px) {
+  #hero {
+    min-height: 100svh !important;
+    padding-top: 112px !important;
+    padding-bottom: 92px !important;
+  }
+
+  .hero-tag {
+    margin-bottom: 8px !important;
+  }
+
+  .hero-names {
+    font-size: clamp(54px, 12.6vw, 82px) !important;
+    line-height: 0.93 !important;
+  }
+
+  .hero-subtitle {
+    margin-top: -2px !important;
+    font-size: 28px !important;
+  }
+
+  .hero-date {
+    margin-top: 10px !important;
+    font-size: 15px !important;
+    letter-spacing: 0.21em !important;
+  }
+
+  .counter-wrap {
+    margin-top: 10px !important;
+    gap: 8px !important;
+    padding: 0 10px !important;
+  }
+
+  .counter-num {
+    font-size: 42px !important;
+    line-height: 0.95 !important;
+  }
+
+  .counter-label {
+    margin-top: 4px !important;
+    font-size: 7px !important;
+    letter-spacing: 0.14em !important;
+  }
+
+  .counter-sep {
+    margin-top: 22px !important;
+  }
+
+  .hero-skyline {
+    width: min(86vw, 430px) !important;
+    height: 58px !important;
+    bottom: 86px !important;
+    margin: 0 !important;
+  }
+
+  .bpm-bar {
+    height: 10px !important;
+    bottom: 0 !important;
+  }
+}
