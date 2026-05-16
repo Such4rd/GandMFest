@@ -1052,7 +1052,7 @@ body::after {
   height: auto !important;
   background-image: url('skyline-mario-gema-clean.png') !important;
   background-repeat: no-repeat !important;
-  background-position: center bottom !important;
+  background-position: center !important;
   background-size: contain !important;
   background-color: transparent !important;
   opacity: 0.78 !important;
