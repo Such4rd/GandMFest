@@ -449,7 +449,7 @@
       width: min(92vw, 1280px);
       height: clamp(70px, 14vw, 170px);
       transform: translateX(-50%);
-      background-image: url('skyline-mario-gema.png');
+      background-image: url('skyline-mario-gema-clean.png');
       background-repeat: no-repeat;
       background-position: center bottom;
       background-size: contain;
