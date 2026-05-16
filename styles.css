@@ -1982,3 +1982,70 @@ nav a + a::before {
     border-radius: 1px 1px 0 0 !important;
   }
 }
+
+/* =========================================================
+   HOTFIX FINAL V4 — sin círculo, skyline rojizo, contador en una fila
+   ========================================================= */
+#hero::before {
+  display: none !important;
+}
+
+.skyline-watermark,
+.footer-skyline {
+  filter: sepia(1) saturate(1800%) hue-rotate(320deg) brightness(0.83) contrast(0.95) !important;
+  opacity: 0.92 !important;
+}
+
+.counter-wrap {
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  justify-content: center !important;
+  align-items: flex-start !important;
+  width: 100% !important;
+  gap: clamp(10px, 1.8vw, 22px) !important;
+}
+
+.counter-unit {
+  min-width: clamp(72px, 10vw, 116px) !important;
+  flex: 0 1 auto !important;
+}
+
+.counter-sep {
+  flex: 0 0 auto !important;
+}
+
+@media (max-width: 720px) {
+  .counter-wrap {
+    flex-wrap: nowrap !important;
+    gap: 8px !important;
+    width: 100% !important;
+  }
+
+  .counter-unit {
+    min-width: 58px !important;
+  }
+
+  .counter-num {
+    font-size: 44px !important;
+    line-height: 0.95 !important;
+  }
+
+  .counter-label {
+    font-size: 8px !important;
+    letter-spacing: 0.24em !important;
+  }
+
+  .counter-sep {
+    width: 7px !important;
+    height: 7px !important;
+    margin-top: 25px !important;
+  }
+
+  .skyline-watermark {
+    filter: sepia(1) saturate(1800%) hue-rotate(320deg) brightness(0.86) contrast(0.96) !important;
+  }
+
+  .footer-skyline {
+    filter: sepia(1) saturate(1800%) hue-rotate(320deg) brightness(0.86) contrast(0.96) !important;
+  }
+}
