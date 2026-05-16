@@ -742,7 +742,7 @@ body {
   width: min(98vw, 1380px);
   height: clamp(96px, 17vw, 198px);
   transform: translateX(-50%);
-  background-image: url('skyline-mario-gema.png');
+  background-image: url('skyline-mario-gema-rojo-transparente.png');
   background-repeat: no-repeat;
   background-position: center bottom;
   background-size: contain;
@@ -856,7 +856,7 @@ body {
   width: min(96vw, 1180px);
   aspect-ratio: 1072 / 144;
   height: auto;
-  background-image: url('skyline-mario-gema.png');
+  background-image: url('skyline-mario-gema-rojo-transparente.png');
   background-repeat: no-repeat;
   background-position: center bottom;
   background-size: contain;
@@ -1349,7 +1349,7 @@ body::before {
   width: min(84vw, 720px) !important;
   height: 74px !important;
   margin: 0 !important;
-  background-image: url('skyline-mario-gema-clean.png') !important;
+  background-image: url('skyline-mario-gema-rojo-transparente.png') !important;
   background-repeat: no-repeat !important;
   background-position: center center !important;
   background-size: contain !important;
