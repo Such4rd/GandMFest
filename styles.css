@@ -1052,7 +1052,7 @@ body::after {
   height: auto !important;
   background-image: url('skyline-mario-gema-clean.png') !important;
   background-repeat: no-repeat !important;
-  background-position: center !important;
+  background-position: center bottom !important;
   background-size: contain !important;
   background-color: transparent !important;
   opacity: 0.78 !important;
@@ -1244,4 +1244,52 @@ body::after {
     bottom: 10px !important;
   }
   .bpm-bar { height: 10px !important; }
+}
+
+/* ====== HOTFIX SKYLINE CENTRADO EN HERO ====== */
+.skyline-watermark {
+  display: none !important;
+}
+
+#hero {
+  position: relative !important;
+  min-height: 100svh !important;
+  padding-bottom: 120px !important;
+}
+
+.hero-skyline {
+  position: absolute !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  bottom: 120px !important;
+  width: min(78vw, 560px) !important;
+  height: 74px !important;
+  margin: 0 !important;
+  z-index: 2 !important;
+}
+
+.bpm-bar {
+  position: absolute !important;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 12px !important;
+  z-index: 2;
+}
+
+@media (max-width: 720px) {
+  #hero {
+    min-height: 100svh !important;
+    padding-bottom: 92px !important;
+  }
+
+  .hero-skyline {
+    width: min(86vw, 430px) !important;
+    height: 64px !important;
+    bottom: 104px !important;
+  }
+
+  .bpm-bar {
+    height: 10px !important;
+  }
 }
