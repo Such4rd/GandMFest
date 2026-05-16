@@ -1484,12 +1484,22 @@ nav a {
     width: 8px !important;
     height: 8px !important;
     margin-top: 22px !important;
-  }
+}
   .hero-skyline {
-    width: 86vw !important;
-    height: 58px !important;
-    bottom: 84px !important;
+    width: 97vw !important;
+    max-width: none !important;
+    height: 118px !important;
+    bottom: 118px !important;
+
+    background-image: url('skyline-mario-gema-rojo-transparente.png') !important;
+    background-repeat: no-repeat !important;
+    background-position: center center !important;
+    background-size: contain !important;
+
+    opacity: 1 !important;
+    filter: none !important;
   }
+
   .bpm-bar {
     height: 14px !important;
     gap: 2px !important;
