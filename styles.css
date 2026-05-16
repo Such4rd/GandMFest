@@ -200,16 +200,16 @@ body::after {
 /* ── SKYLINE ─────────────────────────────────────────────── */
 .hero-skyline {
   position: absolute;
-  left: 50%;
+  left: 0;
+  right: 0;
   bottom: 52px;
-  transform: translateX(-50%);
-  width: min(82vw, 700px);
-  height: clamp(72px, 11vw, 120px);
+  width: 100%;
+  height: clamp(80px, 13vw, 130px);
   z-index: 2;
   background-image: url('skyline-mario-gema-transparent.png');
   background-repeat: no-repeat;
   background-position: center bottom;
-  background-size: contain;
+  background-size: auto 100%;
   opacity: 0.88;
   filter: contrast(1.15) saturate(0.82);
   animation: fadeUp 1.2s 0.9s ease both;
@@ -517,7 +517,7 @@ footer span { color: var(--acid); }
   .counter-label { font-size: 8px; letter-spacing: 0.16em; }
   .counter-sep  { width: 6px; height: 6px; margin-top: 20px; font-size: 0; background: var(--acid); border-radius: 50%; opacity: 0.5; }
 
-  .hero-skyline { width: min(88vw,420px); height: 60px; bottom: 44px; }
+  .hero-skyline { width: 100%; left: 0; right: 0; transform: none; height: 68px; bottom: 44px; background-size: auto 100%; background-position: center bottom; }
   .hero-skyline::before, .hero-skyline::after { display: none; }
   .bpm-bar { height: 10px; }
   .skyline-watermark { width: 88vw; height: 58px; aspect-ratio: auto; opacity: 0.22; }
