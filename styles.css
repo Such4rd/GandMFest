@@ -640,14 +640,13 @@
   nav a {
     font-size: 10px;
     letter-spacing: 0.18em;
+ }
+  .hero-skyline {
+    width: 96vw !important;
+    height: 88px !important;
+    bottom: 100px !important;
   }
 
-  .hero-skyline {
-    width: min(92vw, 520px);
-    height: 74px;
-    margin-top: 18px;
-    margin-bottom: 64px;
-  }
 
   .hero-skyline::before,
   .hero-skyline::after {
