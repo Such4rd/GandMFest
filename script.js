@@ -4,22 +4,29 @@ const params = new URLSearchParams(window.location.search);
 const invitadoId = params.get('id') || '';
 
 // COUNTDOWN
+function setCounterValue(id, value) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  el.textContent = value;
+  el.setAttribute('data-text', value);
+}
+
 function updateCountdown() {
   const target = new Date('2026-10-17T11:00:00').getTime();
   const now = Date.now();
   const diff = target - now;
   if (diff <= 0) {
-    ['cnt-d', 'cnt-h', 'cnt-m', 'cnt-s'].forEach(id => document.getElementById(id).textContent = '00');
+    ['cnt-d', 'cnt-h', 'cnt-m', 'cnt-s'].forEach(id => setCounterValue(id, '00'));
     return;
   }
   const d = Math.floor(diff / 86400000);
   const h = Math.floor((diff % 86400000) / 3600000);
   const m = Math.floor((diff % 3600000) / 60000);
   const s = Math.floor((diff % 60000) / 1000);
-  document.getElementById('cnt-d').textContent = String(d).padStart(2, '0');
-  document.getElementById('cnt-h').textContent = String(h).padStart(2, '0');
-  document.getElementById('cnt-m').textContent = String(m).padStart(2, '0');
-  document.getElementById('cnt-s').textContent = String(s).padStart(2, '0');
+  setCounterValue('cnt-d', String(d).padStart(2, '0'));
+  setCounterValue('cnt-h', String(h).padStart(2, '0'));
+  setCounterValue('cnt-m', String(m).padStart(2, '0'));
+  setCounterValue('cnt-s', String(s).padStart(2, '0'));
 }
 updateCountdown();
 setInterval(updateCountdown, 1000);

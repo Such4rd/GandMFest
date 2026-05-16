@@ -1919,3 +1919,66 @@ nav a + a::before {
     border-radius: 8px 8px 2px 2px !important;
   }
 }
+
+/* =========================================================
+   HOTFIX FINAL V3 — countdown glitch, BPM square/slower, skyline footer
+   ========================================================= */
+.counter-glitch::before,
+.counter-glitch::after {
+  opacity: 0;
+}
+
+.counter-glitch::before {
+  color: rgba(221, 98, 60, 0.42) !important;
+  animation: glitch1 3.6s infinite !important;
+}
+
+.counter-glitch::after {
+  color: rgba(241, 173, 66, 0.38) !important;
+  animation: glitch2 3.6s infinite !important;
+}
+
+.counter-num.counter-glitch {
+  display: inline-block;
+}
+
+.bpm-bar span {
+  border-radius: 2px 2px 0 0 !important;
+  animation: speakerBeatWideSlow 1.38s ease-in-out infinite !important;
+}
+
+@keyframes speakerBeatWideSlow {
+  0%, 100% { transform: scaleY(0.45); opacity: 0.72; }
+  35% { transform: scaleY(1.35); opacity: 0.92; }
+  60% { transform: scaleY(2.6); opacity: 1; }
+  80% { transform: scaleY(1.65); opacity: 0.94; }
+}
+
+.footer-skyline {
+  width: min(82vw, 760px);
+  height: 86px;
+  margin: 40px auto 12px;
+  background-image: url('skyline-mario-gema-clean.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+  opacity: 0.88;
+  mix-blend-mode: multiply;
+  filter: none;
+}
+
+#rsvp .form-box {
+  padding-bottom: 26px;
+}
+
+@media (max-width: 720px) {
+  .footer-skyline {
+    width: 88vw;
+    height: 62px;
+    margin: 32px auto 6px;
+  }
+
+  .bpm-bar span {
+    border-radius: 1px 1px 0 0 !important;
+  }
+}
