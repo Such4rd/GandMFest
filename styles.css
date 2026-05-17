@@ -719,7 +719,7 @@ body {
   margin: 24px auto 58px;
   position: relative;
   z-index: 2;
-  background-image: url('lineart-mario-gema.png');
+  background-image: url('lineart-mario-gema-rojo-transparente.png');
   background-repeat: no-repeat;
   background-position: center center;
   background-size: contain;
@@ -825,9 +825,9 @@ body {
 
   .hero-skyline {
     width: min(86vw, 430px);
-    height: 72px;
+    height: 150px;
     margin-top: 20px;
-    margin-bottom: 62px;
+    margin-bottom: 100px;
   }
 
   .skyline-watermark {
@@ -855,7 +855,7 @@ body {
   width: min(96vw, 1180px);
   aspect-ratio: 1072 / 144;
   height: auto;
-  background-image: url('skyline-mario-gema-rojo-transparente.png');
+  background-image: url('skyline-mario-gema-rojo-transparnte.png');
   background-repeat: no-repeat;
   background-position: center bottom;
   background-size: contain;
