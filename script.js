@@ -159,6 +159,7 @@ function construirLineas(asistencia) {
   const nombre = getValue('nombre-invitado');
   const invitadoDe = getValue('invitado-de');
   const email = getValue('email-confirmacion');
+  const autobus = getValue('autobus');
   const alergiasInvitado = getValue('intolerancias') || 'Ninguna';
   const cancion = getValue('cancion');
   const lineas = [{
@@ -166,6 +167,7 @@ function construirLineas(asistencia) {
     nombre,
     invitadoDe,
     email,
+    autobus,
     asistencia,
     alergias: asistencia === 'si' ? alergiasInvitado : '',
     cancion: asistencia === 'si' ? cancion : ''
@@ -177,6 +179,7 @@ function construirLineas(asistencia) {
       nombre: getValue('nombre-acompanante'),
       invitadoDe,
       email,
+      autobus,
       asistencia,
       alergias: getValue('alergias-acompanante') || 'Ninguna',
       cancion: ''
@@ -189,6 +192,7 @@ function construirLineas(asistencia) {
       nombre: hijo.nombre,
       invitadoDe,
       email,
+      autobus,
       asistencia,
       alergias: hijo.alergias,
       cancion: ''
@@ -228,6 +232,7 @@ async function submitRSVP() {
     invitado: getValue('nombre-invitado'),
     invitadoDe: getValue('invitado-de'),
     email: getValue('email-confirmacion'),
+    autobus: getValue('autobus'),
     intolerancias: getValue('intolerancias') || 'Ninguna',
     acompanante,
     nombreAcompanante,
@@ -269,6 +274,7 @@ async function submitNoAsiste() {
     invitado: getValue('nombre-invitado'),
     invitadoDe: getValue('invitado-de'),
     email: getValue('email-confirmacion'),
+    autobus: getValue('autobus'),
     intolerancias: '',
     acompanante: 'no',
     nombreAcompanante: '',
@@ -318,7 +324,7 @@ const invitado = params.get('invitado');
 if (invitado) {
   const nombre = decodeURIComponent(invitado);
   const tag = document.querySelector('.hero-tag');
-  tag.textContent = '// SAVE THE DATE — HOLA ' + nombre.toUpperCase() + ' 👋';
+  tag.textContent = '// BODORRIO FEST — HOLA ' + nombre.toUpperCase() + ' 👋';
   const inputNombre = document.getElementById('nombre-invitado');
   if (inputNombre && !inputNombre.value) inputNombre.value = nombre;
 }

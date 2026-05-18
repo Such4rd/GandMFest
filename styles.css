@@ -1510,3 +1510,175 @@ nav a {
     min-height: 5px !important;
   }
 }
+
+
+/* ===============================
+   BODORRIO FEST — FINAL TEXT/UI OVERRIDES
+   =============================== */
+:root {
+  --red-soft: #b85c4a;
+  --red-deep: #8e4438;
+  --cream-soft: rgba(249,242,235,0.72);
+}
+
+.nav-shell a,
+.section-label,
+#rsvp label,
+.t-name {
+  color: #6b5049 !important;
+}
+
+.hero-tag {
+  color: var(--red-soft) !important;
+}
+
+.hero-names {
+  font-family: 'Audiowide', sans-serif !important;
+  font-size: clamp(54px, 9.6vw, 110px) !important;
+  line-height: 0.94 !important;
+  letter-spacing: -0.06em !important;
+  text-transform: uppercase;
+}
+.hero-names .name-left,
+.hero-names .name-right {
+  display: inline-block;
+}
+.hero-names .name-left { margin-right: 0.02em !important; }
+.hero-names .name-right { margin-left: 0.02em !important; }
+.hero-names .amp {
+  display: inline-block !important;
+  font-family: 'Audiowide', sans-serif !important;
+  color: var(--red-soft) !important;
+  font-size: 0.88em !important;
+  margin: 0 -0.02em !important;
+  transform: translateY(-0.01em);
+}
+.hero-names .glitch::before,
+.hero-names .glitch::after {
+  font-family: 'Audiowide', sans-serif !important;
+}
+.hero-names .glitch::before {
+  color: rgba(184, 92, 74, 0.45) !important;
+  clip-path: polygon(0 0, 100% 0, 100% 42%, 0 42%) !important;
+}
+.hero-names .glitch::after {
+  color: rgba(88, 36, 31, 0.34) !important;
+  clip-path: polygon(0 58%, 100% 58%, 100% 100%, 0 100%) !important;
+}
+.hero-subtitle {
+  color: var(--red-soft) !important;
+}
+.hero-date,
+.hero-date strong {
+  color: var(--red-soft) !important;
+}
+.counter-sep {
+  background: rgba(184, 92, 74, 0.35) !important;
+}
+
+.section-title {
+  font-family: 'Cormorant Garamond', serif !important;
+  letter-spacing: 0.03em !important;
+}
+
+.timeline-divider {
+  grid-column: 1 / -1;
+  margin: 8px 0 20px;
+  padding-top: 6px;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 13px;
+  letter-spacing: 0.34em;
+  color: var(--red-soft);
+  text-transform: uppercase;
+}
+.timeline-divider:not(:first-child) {
+  margin-top: 18px;
+}
+#plan .timeline-item .t-time {
+  color: var(--red-soft) !important;
+}
+#plan .timeline-item .t-dot {
+  background: var(--red-soft) !important;
+  box-shadow: 0 0 10px rgba(184, 92, 74, 0.28) !important;
+}
+#plan .timeline-item:nth-child(odd) .t-dot,
+#plan .timeline-item:nth-child(even) .t-dot {
+  background: var(--red-soft) !important;
+}
+#plan .t-img-icon {
+  background: rgba(184, 92, 74, 0.08) !important;
+  border-color: rgba(184, 92, 74, 0.16) !important;
+  box-shadow: 0 1px 6px rgba(184, 92, 74, 0.08) !important;
+}
+
+.info-grid-rich {
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+}
+.info-list {
+  list-style: none;
+  display: grid;
+  gap: 14px;
+  margin-top: 8px;
+}
+.info-list li {
+  color: var(--text-muted);
+  line-height: 1.55;
+}
+.info-list strong,
+.info-card h3,
+.loc-address em,
+.map-label {
+  color: var(--text) !important;
+}
+.info-list span {
+  color: #876b63;
+  font-size: 0.92em;
+}
+.info-list a,
+.info-card a {
+  color: var(--red-soft);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(184, 92, 74, 0.25);
+}
+.info-list a:hover,
+.info-card a:hover {
+  color: var(--red-deep);
+  border-color: var(--red-soft);
+}
+
+#location .loc-address,
+#extra-info .info-card,
+#rsvp-form-wrap {
+  backdrop-filter: blur(2px);
+}
+
+@media (max-width: 860px) {
+  .info-grid-rich {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@media (max-width: 720px) {
+  .hero-names {
+    font-size: clamp(38px, 11.6vw, 62px) !important;
+    letter-spacing: -0.075em !important;
+  }
+  .hero-names .amp {
+    font-size: 0.86em !important;
+  }
+  .hero-tag {
+    font-size: 9px !important;
+    letter-spacing: 0.28em !important;
+  }
+  .hero-subtitle {
+    font-size: 26px !important;
+  }
+  .timeline-item {
+    grid-template-columns: 84px 1px 1fr !important;
+    gap: 0 16px !important;
+  }
+  .timeline-divider {
+    font-size: 11px;
+    letter-spacing: 0.22em;
+  }
+}
