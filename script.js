@@ -1,7 +1,6 @@
-const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbze8-z6p-uy_JQEQPr26mJCnh3_ORUeVgFnEOV1jJuudvyRQgrgFkZ3nYcT82KH3-dY/exec';
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwOKYFGf4d8XiqhsyA56sAiwCKmyZybB8BD-T7pvrOgHsb0gUqnf53Kun-A_Yu4S25t/exec';
 
 const params = new URLSearchParams(window.location.search);
-const invitadoId = params.get('id') || '';
 
 // COUNTDOWN
 function updateCountdown() {
@@ -89,13 +88,19 @@ function renderChildrenFields() {
       row.dataset.index = String(i);
       row.innerHTML = `
         <div class="form-group">
-          <label>Nombre hijo/a ${i}</label>
-          <input type="text" class="child-name" placeholder="Nombre del niño/a"/>
-        </div>
-        <div class="form-group">
-          <label>Alergias hijo/a ${i}</label>
-          <input type="text" class="child-allergy" placeholder="Ninguna / indicar alergias"/>
-        </div>
+            <label>Nombre hijo/a ${i}</label>
+            <input type="text" class="child-name" placeholder="Nombre del niño/a"/>
+          </div>
+
+          <div class="form-group">
+            <label>Edad hijo/a ${i}</label>
+            <input type="number" class="child-age" placeholder="Edad"/>
+          </div>
+
+          <div class="form-group">
+            <label>Alergias hijo/a ${i}</label>
+            <input type="text" class="child-allergy" placeholder="Ninguna / indicar alergias"/>
+          </div>
       `;
       list.appendChild(row);
     }
@@ -121,24 +126,10 @@ function getValue(id) {
 
 function validateBaseFields() {
   const nombre = getValue('nombre-invitado');
-  const invitadoDe = getValue('invitado-de');
-  const email = getValue('email-confirmacion');
 
   if (!nombre) {
     showToast('Indica el nombre del invitado/a.', 'error');
     flash('nombre-invitado');
-    return false;
-  }
-
-  if (!invitadoDe) {
-    showToast('Selecciona si vienes de parte de Mario o de Gema.', 'error');
-    flash('invitado-de');
-    return false;
-  }
-
-  if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-    showToast('El correo electrónico no parece válido.', 'error');
-    flash('email-confirmacion');
     return false;
   }
 
@@ -147,59 +138,39 @@ function validateBaseFields() {
 
 function obtenerHijos() {
   if (!document.getElementById('ninos-si')?.checked) return [];
-  return Array.from(document.querySelectorAll('#children-list .child-row')).map((row, idx) => ({
-    tipo: 'HIJO/A',
-    orden: idx + 1,
-    nombre: row.querySelector('.child-name')?.value.trim() || '',
-    alergias: row.querySelector('.child-allergy')?.value.trim() || 'Ninguna'
-  })).filter(hijo => hijo.nombre);
+
+  return Array.from(document.querySelectorAll('#children-list .child-row'))
+    .map((row, idx) => ({
+      orden: idx + 1,
+      nombre: row.querySelector('.child-name')?.value.trim() || '',
+      edad: row.querySelector('.child-age')?.value.trim() || '',
+      alergias: row.querySelector('.child-allergy')?.value.trim() || ''
+    }))
+    .filter(hijo => hijo.nombre);
 }
 
-function construirLineas(asistencia) {
-  const nombre = getValue('nombre-invitado');
-  const invitadoDe = getValue('invitado-de');
-  const email = getValue('email-confirmacion');
+
+function formatearHijos(hijos) {
+  return hijos
+    .map(h => `${h.nombre}${h.edad ? `(${h.edad})` : ''}`)
+    .join(', ');
+}
+
+function formatearIntolerancias(hijos) {
+  const intoleranciaInvitado = getValue('intolerancias');
+  const intoleranciasHijos = hijos
+    .filter(h => h.alergias)
+    .map(h => `${h.nombre}(${h.alergias})`);
+
+  return [
+    intoleranciaInvitado,
+    ...intoleranciasHijos
+  ].filter(Boolean).join(', ');
+}
+
+function formatearAutobus() {
   const autobus = getValue('autobus');
-  const alergiasInvitado = getValue('intolerancias') || 'Ninguna';
-  const cancion = getValue('cancion');
-  const lineas = [{
-    tipo: 'INVITADO/A',
-    nombre,
-    invitadoDe,
-    email,
-    autobus,
-    asistencia,
-    alergias: asistencia === 'si' ? alergiasInvitado : '',
-    cancion: asistencia === 'si' ? cancion : ''
-  }];
-
-  if (asistencia === 'si' && document.getElementById('a-si').checked) {
-    lineas.push({
-      tipo: 'ACOMPAÑANTE',
-      nombre: getValue('nombre-acompanante'),
-      invitadoDe,
-      email,
-      autobus,
-      asistencia,
-      alergias: getValue('alergias-acompanante') || 'Ninguna',
-      cancion: ''
-    });
-  }
-
-  if (asistencia === 'si') {
-    obtenerHijos().forEach(hijo => lineas.push({
-      tipo: hijo.tipo,
-      nombre: hijo.nombre,
-      invitadoDe,
-      email,
-      autobus,
-      asistencia,
-      alergias: hijo.alergias,
-      cancion: ''
-    }));
-  }
-
-  return lineas;
+  return autobus ? autobus : '';
 }
 
 // SUBMIT
@@ -207,11 +178,14 @@ async function submitRSVP() {
   if (!validateBaseFields()) return;
 
   const asistencia = 'si';
-  const acompanante = document.getElementById('a-si').checked ? 'si' : 'no';
-  const nombreAcompanante = getValue('nombre-acompanante');
-  const cancion = getValue('cancion');
 
-  if (acompanante === 'si' && !nombreAcompanante) {
+  const tieneAcompanante = document.getElementById('a-si')?.checked;
+  const nombreAcompanante = tieneAcompanante ? getValue('nombre-acompanante') : '';
+
+  const cancion = getValue('cancion');
+  const hijos = obtenerHijos();
+
+  if (tieneAcompanante && !nombreAcompanante) {
     showToast('Indica el nombre del acompañante.', 'error');
     flash('nombre-acompanante');
     return;
@@ -223,25 +197,40 @@ async function submitRSVP() {
     return;
   }
 
-  const hijos = obtenerHijos();
-  const lineas = construirLineas(asistencia);
+  const ninosTexto = hijos
+    .map(h => `${h.nombre}${h.edad ? `(${h.edad})` : ''}`)
+    .join(', ');
+
+  const intoleranciaInvitado = getValue('intolerancias');
+
+  const intoleranciasHijos = hijos
+    .filter(h => h.alergias)
+    .map(h => `${h.nombre}(${h.alergias})`);
+
+  const intoleranciasTexto = [
+    intoleranciaInvitado,
+    ...intoleranciasHijos
+  ].filter(Boolean).join(', ');
+
+  let autobusTexto = getValue('autobus');
+
+  if (
+    !autobusTexto ||
+    autobusTexto.toLowerCase().includes('no necesito') ||
+    autobusTexto.toLowerCase() === 'no'
+  ) {
+    autobusTexto = '';
+  }
 
   const payload = {
-    id: invitadoId,
     asistencia,
     invitado: getValue('nombre-invitado'),
-    invitadoDe: getValue('invitado-de'),
-    email: getValue('email-confirmacion'),
-    autobus: getValue('autobus'),
-    intolerancias: getValue('intolerancias') || 'Ninguna',
-    acompanante,
-    nombreAcompanante,
-    alergiasAcompanante: getValue('alergias-acompanante') || 'Ninguna',
+    autobus: autobusTexto,
+    intolerancias: intoleranciasTexto,
+    acompanante: nombreAcompanante,
     numeroHijos: hijos.length,
-    hijos,
-    ninos: hijos.map(h => `${h.nombre}(${h.alergias})`).join(', '),
-    cancion,
-    lineas
+    ninos: ninosTexto,
+    cancion
   };
 
   try {
@@ -249,17 +238,20 @@ async function submitRSVP() {
       method: 'POST',
       body: JSON.stringify(payload)
     });
+
     const result = await response.json();
 
-    if (!result.success) {
+    if (!result.ok) {
       showToast(result.message || 'No se pudo guardar la confirmación.', 'error');
       return;
     }
 
     document.getElementById('the-form').style.display = 'none';
+
     const s = document.getElementById('form-success');
     s.style.display = 'block';
     s.style.animation = 'fadeUp 0.6s ease both';
+
   } catch (error) {
     showToast('Error de conexión al enviar la confirmación.', 'error');
   }
@@ -269,21 +261,14 @@ async function submitNoAsiste() {
   if (!validateBaseFields()) return;
 
   const payload = {
-    id: invitadoId,
     asistencia: 'no',
     invitado: getValue('nombre-invitado'),
-    invitadoDe: getValue('invitado-de'),
-    email: getValue('email-confirmacion'),
-    autobus: getValue('autobus'),
+    autobus: '',
     intolerancias: '',
-    acompanante: 'no',
-    nombreAcompanante: '',
-    alergiasAcompanante: '',
+    acompanante: '',
     numeroHijos: 0,
-    hijos: [],
     ninos: '',
-    cancion: '',
-    lineas: construirLineas('no')
+    cancion: ''
   };
 
   try {
@@ -291,17 +276,20 @@ async function submitNoAsiste() {
       method: 'POST',
       body: JSON.stringify(payload)
     });
+
     const result = await response.json();
 
-    if (!result.success) {
+    if (!result.ok) {
       showToast(result.message || 'No se pudo guardar la respuesta.', 'error');
       return;
     }
 
     document.getElementById('the-form').style.display = 'none';
+
     const s = document.getElementById('form-no-asiste');
     s.style.display = 'block';
     s.style.animation = 'fadeUp 0.6s ease both';
+
   } catch (error) {
     showToast('Error de conexión al enviar la respuesta.', 'error');
   }

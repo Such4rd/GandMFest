@@ -36,7 +36,7 @@
       background: linear-gradient(to bottom, rgba(240,237,230,0.95) 60%, transparent);
     }
     nav a {
-      font-family: 'Share Tech Mono', monospace;
+      font-family: 'Audiowide', monospace;
       font-size: 11px; letter-spacing: 0.3em;
       color: var(--text-muted); text-decoration: none;
       text-transform: uppercase; transition: color 0.2s;
@@ -76,7 +76,7 @@
     .hero-logo img { width: 52px; height: 52px; object-fit: contain; }
 
     .hero-tag {
-      font-family: 'Share Tech Mono', monospace;
+      font-family: 'Audiowide', monospace;
       font-size: clamp(10px, 1.5vw, 13px);
       letter-spacing: 0.4em; color: var(--acid);
       text-transform: uppercase; margin-bottom: 32px;
@@ -84,7 +84,7 @@
       position: relative; z-index: 2;
     }
     .hero-names {
-      font-family: 'Bebas Neue', sans-serif;
+      font-family: 'Audiowide', sans-serif;
       font-size: clamp(72px, 18vw, 200px);
       line-height: 0.88; letter-spacing: -0.02em;
       color: var(--text); position: relative;
@@ -121,7 +121,7 @@
       97% { transform:translate(2px,0); opacity:0.7; }
     }
     .hero-date {
-      font-family: 'Share Tech Mono', monospace;
+      font-family: 'Audiowide', monospace;
       font-size: clamp(14px, 3vw, 22px);
       letter-spacing: 0.25em; margin-top: 40px;
       color: var(--text-muted);
@@ -139,17 +139,17 @@
     }
     .counter-unit { text-align: center; }
     .counter-num {
-      font-family: 'Bebas Neue', sans-serif;
+      font-family: 'Audiowide', sans-serif;
       font-size: clamp(40px,8vw,80px);
       color: var(--text); display: block; line-height: 1;
     }
     .counter-label {
-      font-family: 'Share Tech Mono', monospace;
+      font-family: 'Audiowide', monospace;
       font-size: 10px; letter-spacing: 0.4em;
       color: var(--text-muted); text-transform: uppercase;
     }
     .counter-sep {
-      font-family: 'Bebas Neue', sans-serif;
+      font-family: 'Audiowide', sans-serif;
       font-size: 60px; color: var(--acid);
       opacity: 0.5; align-self: flex-start; margin-top: 4px;
     }
@@ -194,7 +194,7 @@
     /* SECTIONS */
     section { max-width:900px; margin:0 auto; padding:80px 24px; }
     .section-label {
-      font-family: 'Share Tech Mono', monospace;
+      font-family: 'Audiowide', monospace;
       font-size: 11px; letter-spacing: 0.5em;
       color: var(--acid); text-transform: uppercase;
       margin-bottom: 16px;
@@ -205,7 +205,7 @@
       background:linear-gradient(90deg, var(--acid), transparent); opacity:0.4;
     }
     .section-title {
-      font-family: 'Bebas Neue', sans-serif;
+      font-family: 'Audiowide', sans-serif;
       font-size: clamp(42px,8vw,80px);
       line-height:1; margin-bottom:48px;
       letter-spacing:0.02em; color:var(--text);
@@ -226,7 +226,7 @@
     .timeline-item.visible { opacity:1; transform:translateX(0); }
     .timeline-item:last-child { padding-bottom:0; }
     .t-time {
-      font-family: 'Share Tech Mono', monospace;
+      font-family: 'Audiowide', monospace;
       font-size:12px; color:var(--acid);
       text-align:right; padding-top:2px;
       letter-spacing:0.05em; line-height:1.4;
@@ -265,12 +265,12 @@
 
     .t-img-icon img { width:100%; height:100%; object-fit:cover; }
     .t-name {
-      font-family: 'Bebas Neue', sans-serif;
+      font-family: 'Audiowide', sans-serif;
       font-size:26px; letter-spacing:0.05em;
       color:var(--text);
     }
     .t-desc { font-size:13px; color:var(--text-muted); line-height:1.6; }
-    .t-sub { font-size:11px; color:var(--text-muted); font-family:'Share Tech Mono',monospace; letter-spacing:0.05em; margin-top:2px; }
+    .t-sub { font-size:11px; color:var(--text-muted); font-family:'Audiowide',monospace; letter-spacing:0.05em; margin-top:2px; }
 
     /* LOCATION */
     #location { position:relative; }
@@ -285,7 +285,7 @@
       background:linear-gradient(90deg, var(--acid), var(--cyan), var(--magenta));
     }
     .loc-address {
-      font-family:'Share Tech Mono',monospace;
+      font-family:'Audiowide',monospace;
       font-size:15px; line-height:2;
       color:var(--text); margin-bottom:28px;
     }
@@ -296,7 +296,7 @@
       display:flex; flex-direction:column;
       align-items:center; justify-content:center;
       gap:12px;
-      font-family:'Share Tech Mono',monospace;
+      font-family:'Audiowide',monospace;
       font-size:12px; letter-spacing:0.2em;
       color:var(--text-muted); cursor:pointer;
       transition:border-color 0.3s; text-decoration:none;
@@ -320,13 +320,13 @@
     .form-group { display:flex; flex-direction:column; gap:8px; }
     .form-group.full { grid-column:1/-1; }
     label {
-      font-family:'Share Tech Mono',monospace;
+      font-family:'Audiowide',monospace;
       font-size:11px; letter-spacing:0.3em;
       color:var(--acid); text-transform:uppercase;
     }
     input:not([type="radio"]), select, textarea {
       background:var(--surface); border:1px solid var(--border);
-      color:var(--text); font-family:'Share Tech Mono',monospace;
+      color:var(--text); font-family:'Audiowide',monospace;
       font-size:14px; padding:14px 16px; outline:none;
       transition:border-color 0.3s, box-shadow 0.3s;
       -webkit-appearance:none; appearance:none;
@@ -344,13 +344,13 @@
       accent-color:var(--acid); cursor:pointer;
     }
     .radio-option span {
-      font-family:'Share Tech Mono',monospace;
+      font-family:'Audiowide',monospace;
       font-size:13px; color:var(--text);
     }
     .btn-submit {
       grid-column:1/-1;
       background:var(--text); color:var(--bg);
-      border:none; font-family:'Bebas Neue',sans-serif;
+      border:none; font-family:'Audiowide',sans-serif;
       font-size:20px; letter-spacing:0.15em;
       padding:18px 40px; cursor:pointer;
       transition:background 0.2s, transform 0.1s, box-shadow 0.3s;
@@ -370,7 +370,7 @@
       border:1px solid var(--border);
       border-left:3px solid var(--magenta);
       padding:24px 28px;
-      font-family:'Share Tech Mono',monospace;
+      font-family:'Audiowide',monospace;
       font-size:13px; line-height:1.8;
       color:var(--text-muted);
       animation:fadeUp 0.4s ease both;
@@ -389,7 +389,7 @@
     .companion-row .form-group { margin:0; }
     .btn-add-comp {
       background:transparent; border:1px solid var(--acid);
-      color:var(--acid); font-family:'Share Tech Mono',monospace;
+      color:var(--acid); font-family:'Audiowide',monospace;
       font-size:11px; letter-spacing:0.2em; padding:10px 16px;
       cursor:pointer; transition:background 0.2s, color 0.2s;
       text-transform:uppercase; margin-top:8px;
@@ -408,11 +408,11 @@
     .form-success { display:none; text-align:center; padding:60px 20px; }
     .form-success .check { font-size:64px; display:block; margin-bottom:20px; }
     .form-success h3 {
-      font-family:'Bebas Neue',sans-serif;
+      font-family:'Audiowide',sans-serif;
       font-size:48px; color:var(--acid); margin-bottom:12px;
     }
     .form-success p {
-      font-family:'Share Tech Mono',monospace;
+      font-family:'Audiowide',monospace;
       color:var(--text-muted); font-size:13px; letter-spacing:0.1em;
     }
 
@@ -421,7 +421,7 @@
       border-top:1px solid var(--border);
       background:var(--surface);
       padding:40px 24px; text-align:center;
-      font-family:'Share Tech Mono',monospace;
+      font-family:'Audiowide',monospace;
       font-size:11px; letter-spacing:0.25em; color:var(--text-muted);
     }
     footer span { color:var(--acid); }
@@ -480,7 +480,7 @@
       padding: 16px 24px;
       border-radius: 14px;
 
-      font-family: 'Share Tech Mono', monospace;
+      font-family: 'Audiowide', monospace;
       font-size: 12px;
       letter-spacing: 0.08em;
       text-transform: uppercase;
@@ -513,14 +513,14 @@
 }
 /* Ajustes solicitados - invitación digital */
 .hero-names {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'AUDIOWIDE', serif;
   font-weight: 600;
   letter-spacing: 0.035em;
   text-transform: uppercase;
 }
 
 .hero-names span.amp {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Audiowide', serif;
   font-weight: 500;
   line-height: 0.72;
 }
@@ -531,13 +531,13 @@
   margin: 26px auto 58px;
   position: relative;
   z-index: 2;
-  background-image: url('skyline-mario-gema-rojo-transparente.png');
+  background-image: url('skyline-mario-gema-rojotransparente.png');
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
-  opacity: 0.78;
+  opacity: 0.88;
   animation: fadeUp 1s 0.8s ease both;
-  filter: contrast(1.15);
+  filter: none ;
 }
 
 .hero-skyline::before,
@@ -585,7 +585,7 @@
 }
 
 .info-card h3 {
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: 'Audiowide', sans-serif;
   font-size: 30px;
   letter-spacing: 0.08em;
   margin-bottom: 10px;
@@ -613,7 +613,7 @@
 }
 
 .helper-copy span {
-  font-family: 'Share Tech Mono', monospace;
+  font-family: 'Audiowide', monospace;
   font-size: 11px;
   line-height: 1.7;
   color: var(--text-muted);
@@ -674,7 +674,7 @@ body {
   align-items: flex-end;
   justify-content: center;
   gap: 0;
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Audiowide', serif;
   font-weight: 600;
   font-size: clamp(58px, 12vw, 132px);
   line-height: 0.9;
@@ -702,7 +702,7 @@ body {
 
 .hero-subtitle {
   margin-top: 12px;
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Audiowide', serif;
   font-style: italic;
   font-weight: 400;
   font-size: clamp(24px, 4vw, 46px);
@@ -769,7 +769,7 @@ body {
   border: 1px solid var(--border);
   background: var(--bg);
   color: var(--text);
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Audiowide', serif;
   font-size: 30px;
   line-height: 1;
   cursor: pointer;
@@ -789,7 +789,7 @@ body {
 .counter-display {
   min-width: 28px;
   text-align: center;
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: 'Audiowide', sans-serif;
   font-size: 42px;
   line-height: 1;
   color: var(--text);
@@ -988,7 +988,7 @@ body::after {
   align-items: flex-end;
   justify-content: center;
   gap: 0;
-  font-family: 'Cormorant Garamond', serif !important;
+  font-family: 'Audiowide', serif !important;
   font-weight: 600;
   font-size: clamp(58px, 12vw, 132px);
   line-height: 0.9;
@@ -1006,7 +1006,7 @@ body::after {
   font-size: 0.96em;
   line-height: 0.92;
   color: var(--acid);
-  font-family: 'Cormorant Garamond', serif !important;
+  font-family: 'Audiowide', serif !important;
 }
 
 .glitch {
@@ -1049,7 +1049,7 @@ body::after {
   width: min(84vw, 980px) !important;
   aspect-ratio: 1072 / 144 !important;
   height: auto !important;
-  background-image: url('skyline-mario-gema-clean.png') !important;
+  background-image: url('skyline-mario-gema-rojo_transparente.png') !important;
   background-repeat: no-repeat !important;
   background-position: center bottom !important;
   background-size: contain !important;
@@ -1170,7 +1170,7 @@ body::before {
   text-align: center;
   text-decoration: none;
   color: #5e4c47 !important;
-  font-family: 'Share Tech Mono', monospace;
+  font-family: 'Audiowide', monospace;
   font-size: 11px;
   letter-spacing: 0.26em;
   text-transform: uppercase;
@@ -1260,7 +1260,7 @@ body::before {
   align-items: flex-end !important;
   justify-content: center !important;
   gap: 0 !important;
-  font-family: 'Cormorant Garamond', serif !important;
+  font-family: 'Audiowide', serif !important;
   font-size: clamp(62px, 12vw, 130px) !important;
   line-height: 0.9 !important;
   letter-spacing: -0.055em !important;
@@ -1276,14 +1276,14 @@ body::before {
   font-size: 0.94em !important;
   line-height: 0.92 !important;
   color: #cb8f7d !important;
-  font-family: 'Cormorant Garamond', serif !important;
+  font-family: 'Audiowide', serif !important;
 }
 .glitch::before { color: rgba(185, 102, 84, 0.42) !important; }
 .glitch::after { color: rgba(110, 58, 52, 0.36) !important; }
 
 .hero-subtitle {
   margin-top: 6px !important;
-  font-family: 'Cormorant Garamond', serif !important;
+  font-family: 'Audiowide', serif !important;
   font-style: italic;
   font-size: clamp(24px, 4vw, 46px) !important;
   color: #453633 !important;
@@ -1291,7 +1291,7 @@ body::before {
 
 .hero-date {
   margin-top: 16px !important;
-  font-family: 'Share Tech Mono', monospace !important;
+  font-family: 'Audiowide', monospace !important;
   font-size: clamp(14px, 2.2vw, 22px) !important;
   letter-spacing: 0.26em !important;
   color: var(--hero-accent) !important;
@@ -1313,7 +1313,7 @@ body::before {
 }
 .counter-num {
   display: block !important;
-  font-family: 'Bebas Neue', sans-serif !important;
+  font-family: 'Audiowide', sans-serif !important;
   font-size: clamp(42px, 7vw, 80px) !important;
   color: #181413 !important;
   line-height: 0.95 !important;
@@ -1321,7 +1321,7 @@ body::before {
 .counter-label {
   display: block !important;
   margin-top: 7px !important;
-  font-family: 'Share Tech Mono', monospace !important;
+  font-family: 'Audiowide', monospace !important;
   font-size: 9px !important;
   letter-spacing: 0.26em !important;
   text-transform: uppercase !important;
@@ -1353,7 +1353,7 @@ body::before {
   background-position: center center !important;
   background-size: contain !important;
   opacity: 0.94 !important;
-  filter: sepia(1) saturate(1750%) hue-rotate(318deg) brightness(0.92) contrast(0.98) !important;
+  filter:  contrast(0.98) !important;
 }
 
 .bpm-bar {
@@ -1412,7 +1412,7 @@ nav a {
   position: relative;
 }
 .section-title {
-  font-family: 'Cormorant Garamond', serif !important;
+  font-family: 'Audiowide', serif !important;
   font-size: clamp(34px, 6vw, 70px) !important;
   letter-spacing: 0.04em !important;
 }
@@ -1577,7 +1577,7 @@ nav a {
 }
 
 .section-title {
-  font-family: 'Cormorant Garamond', serif !important;
+  font-family: 'Audiowide', serif !important;
   letter-spacing: 0.03em !important;
 }
 
@@ -1585,7 +1585,7 @@ nav a {
   grid-column: 1 / -1;
   margin: 8px 0 20px;
   padding-top: 6px;
-  font-family: 'Share Tech Mono', monospace;
+  font-family: 'Audiowide', monospace;
   font-size: 13px;
   letter-spacing: 0.34em;
   color: var(--red-soft);

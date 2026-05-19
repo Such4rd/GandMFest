@@ -30,7 +30,7 @@
   <div class="orb orb-3"></div>
 
 
-  <p class="hero-tag">// BODORRIO FEST</p>
+  <p class="hero-tag">¡NOS CASAMOS!</p>
 
   <h1 class="hero-names" aria-label="Mario y Gema">
     <span class="name-left glitch" data-text="MARIO">MARIO</span><span class="amp">&</span><span class="name-right glitch" data-text="GEMA">GEMA</span>
@@ -268,20 +268,6 @@
           <input type="text" id="nombre-invitado" placeholder="Nombre y apellidos" required/>
         </div>
 
-        <div class="form-group">
-          <label>Invitado/a de</label>
-          <select id="invitado-de" required>
-            <option value="">Seleccionar</option>
-            <option value="Mario">Mario</option>
-            <option value="Gema">Gema</option>
-          </select>
-        </div>
-
-        <div class="form-group full">
-          <label>Correo electrónico</label>
-          <input type="email" id="email-confirmacion" placeholder="correo@ejemplo.com"/>
-        </div>
-
         <!-- Mensaje no asistencia -->
         <div id="no-asiste-msg">
           <strong>Qué pena... 😢</strong>
@@ -306,16 +292,6 @@
             </div>
           </div>
 
-          <div class="form-group full">
-            <label>🚍 ¿Necesitarás autobús?</label>
-            <select id="autobus">
-              <option value="">Seleccionar</option>
-              <option value="Salida desde Novelda">Salida desde Novelda</option>
-              <option value="Salida desde Aspe">Salida desde Aspe</option>
-              <option value="No necesito autobús">No necesito autobús</option>
-            </select>
-          </div>
-
           <div id="acompanante-fields" class="guest-block" style="display:none;">
             <div class="form-group">
               <label>Nombre acompañante</label>
@@ -326,9 +302,19 @@
               <input type="text" id="alergias-acompanante" placeholder="Ninguna / indicar alergias"/>
             </div>
           </div>
+          
+          <div class="form-group full">
+            <label>🚍 ¿Necesitarás autobús?</label>
+            <select id="autobus">
+              <option value="">Seleccionar</option>
+              <option value="Salida desde Novelda">Salida desde Novelda</option>
+              <option value="Salida desde Aspe">Salida desde Aspe</option>
+              <option value="No necesito autobús">No necesito autobús</option>
+            </select>
+          </div>
 
           <div class="form-group full" style="margin-top:0">
-            <label>¿Vienen niños/as?</label>
+            <label>¿Vienen tus hijos/as?</label>
             <div class="radio-group">
               <label class="radio-option">
                 <input type="radio" name="ninos" value="si" id="ninos-si" onchange="toggleNinos()"/>
@@ -352,7 +338,7 @@
               <input type="hidden" id="num-hijos" value="0"/>
             </div>
             <div class="form-group helper-copy">
-              <span>Añade hijos/as con el contador. Si marcas NO, no se mostrarán estos campos.</span>
+              <span>Añade hijos/as con el contador.</span>
             </div>
           </div>
 
