@@ -1,4 +1,4 @@
-const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwOKYFGf4d8XiqhsyA56sAiwCKmyZybB8BD-T7pvrOgHsb0gUqnf53Kun-A_Yu4S25t/exec';
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxcuNuH732qhHAp3wcKF7h3rzL2pU-OSG6qUfWEfWtziiz63f_zNXt233fyP1ROGysZ/exec';
 
 const params = new URLSearchParams(window.location.search);
 
@@ -111,6 +111,28 @@ function renderChildrenFields() {
   }
 }
 
+function mostrarCargando(idBoton) {
+  const loading = document.getElementById('form-loading');
+  if (loading) loading.style.display = 'block';
+
+  const btn = document.getElementById(idBoton);
+  if (btn) {
+    btn.disabled = true;
+    btn.style.display = 'none';
+  }
+}
+
+function ocultarCargando(idBoton) {
+  const loading = document.getElementById('form-loading');
+  if (loading) loading.style.display = 'none';
+
+  const btn = document.getElementById(idBoton);
+  if (btn) {
+    btn.disabled = false;
+    btn.style.display = '';
+  }
+}
+
 function showToast(message, type = 'info') {
   const toast = document.getElementById('toast');
   toast.textContent = message;
@@ -203,12 +225,17 @@ async function submitRSVP() {
 
   const intoleranciaInvitado = getValue('intolerancias');
 
+  const intoleranciaAcompanante = tieneAcompanante
+  ? getValue('alergias-acompanante')
+  : '';
+
   const intoleranciasHijos = hijos
     .filter(h => h.alergias)
     .map(h => `${h.nombre}(${h.alergias})`);
 
   const intoleranciasTexto = [
     intoleranciaInvitado,
+    intoleranciaAcompanante && `${nombreAcompanante}(${intoleranciaAcompanante})`,
     ...intoleranciasHijos
   ].filter(Boolean).join(', ');
 
@@ -232,7 +259,7 @@ async function submitRSVP() {
     ninos: ninosTexto,
     cancion
   };
-
+  mostrarCargando('btn-confirmar');
   try {
     const response = await fetch(APPS_SCRIPT_URL, {
       method: 'POST',
@@ -255,6 +282,9 @@ async function submitRSVP() {
   } catch (error) {
     showToast('Error de conexión al enviar la confirmación.', 'error');
   }
+  finally {
+    ocultarCargando('btn-confirmar');
+  }
 }
 
 async function submitNoAsiste() {
@@ -270,7 +300,7 @@ async function submitNoAsiste() {
     ninos: '',
     cancion: ''
   };
-
+  mostrarCargando('btn-no-asiste');
   try {
     const response = await fetch(APPS_SCRIPT_URL, {
       method: 'POST',
@@ -292,6 +322,8 @@ async function submitNoAsiste() {
 
   } catch (error) {
     showToast('Error de conexión al enviar la respuesta.', 'error');
+  }finally {
+    ocultarCargando('btn-no-asiste');
   }
 }
 

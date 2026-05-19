@@ -357,15 +357,20 @@
             <textarea id="cancion" placeholder="La añadiremos a la playlist de la boda..."></textarea>
           </div>
 
-          <button class="btn-submit" onclick="submitRSVP()">CONFIRMAR ASISTENCIA →</button>
+          <button class="btn-submit" id="btn-confirmar" onclick="submitRSVP()">CONFIRMAR ASISTENCIA →</button>
         </div>
 
         <!-- Botón enviar no asiste -->
         <div id="no-asiste-btn-wrap" style="display:none; grid-column:1/-1;">
-          <button class="btn-submit" style="width:100%" onclick="submitNoAsiste()">ENVIAR RESPUESTA</button>
+          <button class="btn-submit" style="width:100%" id="btn-no-asiste" onclick="submitNoAsiste()">ENVIAR RESPUESTA</button>
         </div>
 
       </div>
+    </div>
+
+    <div id="form-loading" class="form-loading" style="display: none;">
+      <div class="loader"></div>
+        <p>Guardando confirmación...</p>
     </div>
 
     <div class="form-success" id="form-success">

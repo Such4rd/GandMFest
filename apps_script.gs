@@ -21,6 +21,38 @@ function doPost(e) {
 
     const data = JSON.parse(e.postData.contents);
 
+    const nombreNuevo = String(data.invitado || "")
+      .trim()
+      .toLowerCase();
+
+    if (!nombreNuevo) {
+      return ContentService
+        .createTextOutput(JSON.stringify({
+          success: false,
+          message: "El nombre del invitado es obligatorio."
+        }))
+        .setMimeType(ContentService.MimeType.JSON);
+    }
+
+    const lastRow = sheet.getLastRow();
+
+    if (lastRow > 1) {
+      const nombresExistentes = sheet
+        .getRange(2, 3, lastRow - 1, 1)
+        .getValues()
+        .flat()
+        .map(nombre => String(nombre || "").trim().toLowerCase());
+
+      if (nombresExistentes.includes(nombreNuevo)) {
+        return ContentService
+          .createTextOutput(JSON.stringify({
+            success: false,
+            message: "Ya existe una respuesta registrada con ese nombre."
+          }))
+          .setMimeType(ContentService.MimeType.JSON);
+      }
+    }
+
     sheet.appendRow([
     new Date(),
     data.asistencia || "",
