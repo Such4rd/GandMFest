@@ -409,7 +409,7 @@
     .form-success .check { font-size:64px; display:block; margin-bottom:20px; }
     .form-success h3 {
       font-family:'Audiowide',sans-serif;
-      font-size:48px; color:var(--acid); margin-bottom:12px;
+      font-size:35px; color:var(--acid); margin-bottom:12px;
     }
     .form-success p {
       font-family:'Audiowide',monospace;
@@ -1433,7 +1433,7 @@ nav a {
     box-shadow: 0 4px 12px rgba(137, 86, 73, 0.03);
   }
   .nav-shell a {
-    font-size: 9px !important;
+    font-size: 7px !important;
     letter-spacing: 0.16em !important;
     padding: 0 2px !important;
   }
