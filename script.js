@@ -195,6 +195,24 @@ function formatearAutobus() {
   return autobus ? autobus : '';
 }
 
+function toggleRecoveryArea() {
+  const panel = document.getElementById('recovery-panel');
+  if (!panel) return;
+  panel.hidden = !panel.hidden;
+}
+
+async function copyIban() {
+  const iban = document.getElementById('iban-text')?.textContent.trim() || '';
+  if (!iban) return;
+
+  try {
+    await navigator.clipboard.writeText(iban);
+    showToast('Cuenta copiada.', 'success');
+  } catch (error) {
+    showToast('No se pudo copiar. Mantén pulsado sobre la cuenta para copiarla.', 'error');
+  }
+}
+
 // SUBMIT
 async function submitRSVP() {
   if (!validateBaseFields()) return;
@@ -257,7 +275,8 @@ async function submitRSVP() {
     acompanante: nombreAcompanante,
     numeroHijos: hijos.length,
     ninos: ninosTexto,
-    cancion
+    cancion,
+    mensaje: getValue('mensaje-novios')
   };
   mostrarCargando('btn-confirmar');
   try {
@@ -298,7 +317,8 @@ async function submitNoAsiste() {
     acompanante: '',
     numeroHijos: 0,
     ninos: '',
-    cancion: ''
+    cancion: '',
+    mensaje: getValue('mensaje-novios-no')
   };
   mostrarCargando('btn-no-asiste');
   try {

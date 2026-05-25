@@ -15,7 +15,8 @@ function doPost(e) {
         "ACOMPANIANTE",
         "NUMERO_HIJOS",
         "NINIOS",
-        "CANCION"
+        "CANCION",
+        "MENSAJE_NOVIOS"
       ]);
     }
 
@@ -62,7 +63,8 @@ function doPost(e) {
     data.acompanante || "",
     data.numeroHijos || 0,
     data.ninos || "",
-    data.cancion || ""
+    data.cancion || "",
+    data.mensaje || ""
   ]);
 
     return ContentService
