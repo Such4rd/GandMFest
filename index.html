@@ -89,6 +89,7 @@
         <div class="t-line"><div class="t-dot"></div></div>
         <div class="t-content">
           <div class="t-header">
+            <div class="t-img-icon" aria-hidden="true">🍻</div>
             <div class="t-name">PREBODA</div>
           </div>
           <div class="t-desc">Nos vemos en Novelda para arrancar el finde como se merece. Os iremos actualizando ubicación y más detalles próximamente.</div>
@@ -102,6 +103,7 @@
         <div class="t-line"><div class="t-dot"></div></div>
         <div class="t-content">
           <div class="t-header">
+            <div class="t-img-icon" aria-hidden="true">🚌</div>
             <div class="t-name">BUSES</div>
           </div>
           <div class="t-desc">Salida de autobuses desde Novelda y Aspe hasta Alfonso Mira. Puntualidad festivalera, por favor.</div>
@@ -113,6 +115,7 @@
         <div class="t-line"><div class="t-dot"></div></div>
         <div class="t-content">
           <div class="t-header">
+            <div class="t-img-icon" aria-hidden="true">💍</div>
             <div class="t-name">CEREMONIA</div>
           </div>
           <div class="t-desc">El primer drop del día. Nos damos el sí junto a nuestro Master of Ceremonies invitado.</div>
@@ -124,6 +127,7 @@
         <div class="t-line"><div class="t-dot"></div></div>
         <div class="t-content">
           <div class="t-header">
+            <div class="t-img-icon" aria-hidden="true">🍸</div>
             <div class="t-name">CÓCTEL</div>
           </div>
           <div class="t-desc">Calentamos motores. Comida, bebida y empieza el jaleito.</div>
@@ -135,6 +139,7 @@
         <div class="t-line"><div class="t-dot"></div></div>
         <div class="t-content">
           <div class="t-header">
+            <div class="t-img-icon" aria-hidden="true">🍽️</div>
             <div class="t-name">COMIDA</div>
           </div>
           <div class="t-desc">Main Stage. Banquete en el salón principal.</div>
@@ -146,6 +151,7 @@
         <div class="t-line"><div class="t-dot"></div></div>
         <div class="t-content">
           <div class="t-header">
+            <div class="t-img-icon" aria-hidden="true">🎧</div>
             <div class="t-name">FIESTA</div>
           </div>
           <div class="t-desc">El mejor momento para los más disfrutones.</div>
@@ -157,6 +163,7 @@
         <div class="t-line"><div class="t-dot"></div></div>
         <div class="t-content">
           <div class="t-header">
+            <div class="t-img-icon" aria-hidden="true">🌙</div>
             <div class="t-name">CIERRE</div>
           </div>
           <div class="t-desc">Los buses de vuelta parten a medianoche.</div>
@@ -186,11 +193,6 @@
         </p>
       </div>
     </div>
-    <a class="map-placeholder" href="https://www.google.com/maps/search/?api=1&query=Restaurante%20Alfonso%20Mira%20Aspe" target="_blank" rel="noopener">
-      <div class="map-grid-inner"></div>
-      <span class="map-icon">📍</span>
-      <span class="map-label">ABRIR ALFONSO MIRA EN GOOGLE MAPS</span>
-    </a>
   </div>
 </section>
 
@@ -205,11 +207,26 @@
 
     <details class="info-accordion">
       <summary><span>🍽️ Restaurantes</span></summary>
-      <ul class="info-list link-list">
-        <li><a href="https://yarestaurante.es/" target="_blank" rel="noopener">Restaurante Ya</a></li>
-        <li><a href="https://elxorretrestaurante.es/" target="_blank" rel="noopener">El Xorret</a></li>
-        <li><a href="https://www.tripadvisor.es/Restaurant_Review-g1064217-d7194530-Reviews-La_Casita_Gastrobar_Cafe-Aspe_Province_of_Alicante_Valencian_Community.html" target="_blank" rel="noopener">La Casita</a></li>
-      </ul>
+      <div class="restaurant-groups">
+        <div class="restaurant-group">
+          <h4>Aspe</h4>
+          <ul class="info-list link-list">
+            <li><a href="https://www.google.com/search?q=BonProfit+Aspe" target="_blank" rel="noopener">Bon Profit</a></li>
+            <li><a href="https://www.google.com/search?q=Kaos+Burger+Bar+Aspe" target="_blank" rel="noopener">Kaos Burger Bar</a></li>
+            <li><a href="https://www.google.com/search?q=La+Oveja+Negra+Aspe" target="_blank" rel="noopener">La Oveja Negra</a></li>
+            <li><a href="https://www.google.com/search?q=Churreria+Mamatita+Aspe" target="_blank" rel="noopener">Churrería Mamatita</a></li>
+            <li><a href="https://www.tripadvisor.es/Restaurant_Review-g1064217-d7194530-Reviews-La_Casita_Gastrobar_Cafe-Aspe_Province_of_Alicante_Valencian_Community.html" target="_blank" rel="noopener">La Casita</a></li>
+          </ul>
+        </div>
+
+        <div class="restaurant-group">
+          <h4>Novelda</h4>
+          <ul class="info-list link-list">
+            <li><a href="https://yarestaurante.es/" target="_blank" rel="noopener">Restaurante Ya</a></li>
+            <li><a href="https://elxorretrestaurante.es/" target="_blank" rel="noopener">El Xorret</a></li>
+          </ul>
+        </div>
+      </div>
     </details>
 
     <details class="info-accordion">
@@ -238,17 +255,6 @@
     </details>
   </div>
 
-  <div class="recovery-area">
-    <button type="button" class="recovery-toggle" onclick="toggleRecoveryArea()">Área de recuperación</button>
-    <div id="recovery-panel" class="recovery-panel" hidden>
-      <p>Gracias por venir a liarla con nosotros ❤️</p>
-      <p>Si además queréis colaborar con la recuperación post-festival 😏</p>
-      <div class="iban-copy">
-        <code id="iban-text">ES81 0081 1026 9100 0160 9868</code>
-        <button type="button" onclick="copyIban()">Copiar</button>
-      </div>
-    </div>
-  </div>
 </section>
 
 <!-- RSVP -->
@@ -279,7 +285,7 @@
             <label>Nombre invitado/a</label>
             <input type="text" id="nombre-invitado" placeholder="Nombre y apellidos" required/>
           </div>
-          <div class="form-group">
+          <div class="form-group" id="intolerancias-main-group">
             <label>Intolerancias / alergias</label>
             <input type="text" id="intolerancias" placeholder="Ninguna / indicar alergias"/>
           </div>
@@ -320,6 +326,24 @@
             </div>
           </div>
           
+          <div class="form-group full" style="margin-top:0">
+            <label>¿Vienes a la preboda?</label>
+            <div class="radio-group">
+              <label class="radio-option">
+                <input type="radio" name="preboda" value="si" id="preboda-si"/>
+                <span>✓ SÍ</span>
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="preboda" value="no" id="preboda-no" checked/>
+                <span>✗ NO</span>
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="preboda" value="pendiente" id="preboda-pendiente"/>
+                <span>LO CONFIRMO MÁS TARDE</span>
+              </label>
+            </div>
+          </div>
+
           <div class="form-group full">
             <label>🚍 ¿Necesitarás autobús?</label>
             <select id="autobus">
@@ -346,21 +370,21 @@
 
           <div class="guest-block children-counter-block" id="children-counter-block" style="display:none;">
             <div class="form-group">
-              <label>Número de hijos/as</label>
-              <div class="counter-control counter-control-small" aria-label="Contador de hijos/as">
-                <button type="button" class="counter-btn" onclick="changeChildrenCount(-1)" aria-label="Restar hijo/a">−</button>
+              <label>Número de niños/as</label>
+              <div class="counter-control counter-control-small" aria-label="Contador de niños/as">
+                <button type="button" class="counter-btn" onclick="changeChildrenCount(-1)" aria-label="Restar niño/a">−</button>
                 <span class="counter-display" id="num-hijos-display">0</span>
-                <button type="button" class="counter-btn" onclick="changeChildrenCount(1)" aria-label="Sumar hijo/a">+</button>
+                <button type="button" class="counter-btn" onclick="changeChildrenCount(1)" aria-label="Sumar niño/a">+</button>
               </div>
               <input type="hidden" id="num-hijos" value="0"/>
             </div>
             <div class="form-group helper-copy">
-              <span>Añade hijos/as con el contador.</span>
+              <span>Añade niños/as con el contador.</span>
             </div>
           </div>
 
           <div class="form-group full" id="children-data-group" style="display:none;">
-            <label>Datos de hijos/as</label>
+            <label>Datos de niños/as</label>
             <div class="companions-list" id="children-list"></div>
           </div>
 
@@ -375,6 +399,18 @@
           </div>
 
           <button class="btn-submit" id="btn-confirmar" onclick="submitRSVP()">CONFIRMAR ASISTENCIA →</button>
+
+          <div class="recovery-area recovery-area-rsvp">
+            <button type="button" class="recovery-toggle" onclick="toggleRecoveryArea()">Área de recuperación</button>
+            <div id="recovery-panel" class="recovery-panel" hidden>
+              <p>Gracias por venir a liarla con nosotros ❤️</p>
+              <p>Si además queréis colaborar con la recuperación post-festival 😏</p>
+              <div class="iban-copy">
+                <code id="iban-text">ES81 0081 1026 9100 0160 9868</code>
+                <button type="button" onclick="copyIban()">Copiar</button>
+              </div>
+            </div>
+          </div>
         </div>
 
         <!-- Botón enviar no asiste -->

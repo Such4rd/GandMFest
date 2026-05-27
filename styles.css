@@ -1968,3 +1968,83 @@ nav a {
     grid-template-columns: 1fr;
   }
 }
+
+
+/* Correcciones Bodorrio Fest */
+.restaurant-groups {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  padding: 0 24px 24px;
+}
+
+.restaurant-group {
+  border: 1px solid var(--border);
+  background: rgba(240,237,230,0.45);
+  padding: 16px;
+}
+
+.restaurant-group h4 {
+  font-family: 'Audiowide', monospace;
+  font-size: 13px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--acid);
+  margin-bottom: 12px;
+}
+
+.restaurant-group .info-list.link-list {
+  padding: 0;
+}
+
+.recovery-area-rsvp {
+  grid-column: 1 / -1;
+  justify-items: stretch;
+  margin-top: -2px;
+}
+
+.recovery-area-rsvp .recovery-toggle {
+  width: 100%;
+  border-color: rgba(143,184,0,0.38);
+  background:
+    linear-gradient(90deg, rgba(143,184,0,0.12), rgba(0,122,110,0.08), rgba(204,0,119,0.08)),
+    rgba(232,228,219,0.55);
+}
+
+.recovery-panel-open {
+  animation: recoveryDrop 0.45s ease both;
+}
+
+.recovery-pulse {
+  animation: recoveryBeat 0.55s ease both;
+}
+
+@keyframes recoveryDrop {
+  0% {
+    opacity: 0;
+    transform: translateY(-8px) scale(0.98);
+    box-shadow: 0 0 0 rgba(143,184,0,0);
+  }
+  65% {
+    opacity: 1;
+    transform: translateY(0) scale(1.01);
+    box-shadow: 0 0 28px rgba(143,184,0,0.22);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    box-shadow: none;
+  }
+}
+
+@keyframes recoveryBeat {
+  0%, 100% { transform: scale(1); }
+  35% { transform: scale(1.025); box-shadow: 0 0 22px rgba(143,184,0,0.25); }
+  65% { transform: scale(0.992); }
+}
+
+@media (max-width: 720px) {
+  .restaurant-groups {
+    grid-template-columns: 1fr;
+  }
+}

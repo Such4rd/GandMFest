@@ -36,6 +36,12 @@ function toggleAsistencia() {
   const si = document.getElementById('r-si').checked;
   document.getElementById('no-asiste-msg').style.display = si ? 'none' : 'block';
   document.getElementById('no-asiste-btn-wrap').style.display = si ? 'none' : 'block';
+
+  const intoleranciasGroup = document.getElementById('intolerancias-main-group');
+  const intoleranciasInput = document.getElementById('intolerancias');
+  if (intoleranciasGroup) intoleranciasGroup.style.display = si ? '' : 'none';
+  if (!si && intoleranciasInput) intoleranciasInput.value = '';
+
   const sec = document.getElementById('acompanantes-section');
   if (si) sec.classList.add('show');
   else sec.classList.remove('show');
@@ -88,17 +94,17 @@ function renderChildrenFields() {
       row.dataset.index = String(i);
       row.innerHTML = `
         <div class="form-group">
-            <label>Nombre hijo/a ${i}</label>
+            <label>Nombre niño/a ${i}</label>
             <input type="text" class="child-name" placeholder="Nombre del niño/a"/>
           </div>
 
           <div class="form-group">
-            <label>Edad hijo/a ${i}</label>
+            <label>Edad niño/a ${i}</label>
             <input type="number" class="child-age" placeholder="Edad"/>
           </div>
 
           <div class="form-group">
-            <label>Alergias hijo/a ${i}</label>
+            <label>Alergias niño/a ${i}</label>
             <input type="text" class="child-allergy" placeholder="Ninguna / indicar alergias"/>
           </div>
       `;
@@ -195,10 +201,33 @@ function formatearAutobus() {
   return autobus ? autobus : '';
 }
 
+function obtenerPreboda() {
+  const seleccion = document.querySelector('input[name="preboda"]:checked');
+  if (!seleccion) return '';
+  if (seleccion.value === 'si') return 'Sí';
+  if (seleccion.value === 'no') return 'No';
+  return 'Pendiente';
+}
+
+
 function toggleRecoveryArea() {
   const panel = document.getElementById('recovery-panel');
+  const button = document.querySelector('.recovery-toggle');
   if (!panel) return;
+
   panel.hidden = !panel.hidden;
+
+  if (button) {
+    button.classList.remove('recovery-pulse');
+    void button.offsetWidth;
+    button.classList.add('recovery-pulse');
+  }
+
+  if (!panel.hidden) {
+    panel.classList.remove('recovery-panel-open');
+    void panel.offsetWidth;
+    panel.classList.add('recovery-panel-open');
+  }
 }
 
 async function copyIban() {
@@ -271,6 +300,7 @@ async function submitRSVP() {
     asistencia,
     invitado: getValue('nombre-invitado'),
     autobus: autobusTexto,
+    preboda: obtenerPreboda(),
     intolerancias: intoleranciasTexto,
     acompanante: nombreAcompanante,
     numeroHijos: hijos.length,
@@ -313,6 +343,7 @@ async function submitNoAsiste() {
     asistencia: 'no',
     invitado: getValue('nombre-invitado'),
     autobus: '',
+    preboda: '',
     intolerancias: '',
     acompanante: '',
     numeroHijos: 0,
