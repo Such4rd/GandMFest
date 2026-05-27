@@ -2066,3 +2066,6 @@ nav a {
   stroke-linecap: round;
   stroke-linejoin: round;
 }
+
+.skyline-inline{width:22px;height:22px;vertical-align:middle;margin-right:8px;stroke:#000;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;}
+.info-accordion summary span{display:flex;align-items:center;gap:8px;}
