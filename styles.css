@@ -2048,3 +2048,21 @@ nav a {
     grid-template-columns: 1fr;
   }
 }
+
+/* Iconos itinerario: skyline line-art negro */
+#plan .t-img-icon {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+#plan .skyline-icon {
+  width: 34px;
+  height: 34px;
+  display: block;
+  fill: none;
+  stroke: #000;
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
