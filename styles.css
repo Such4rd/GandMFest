@@ -1169,7 +1169,7 @@ body::before {
 .nav-shell a {
   text-align: center;
   text-decoration: none;
-  color: #5e4c47 !important;
+  color: #0ee933 !important;
   font-family: 'Audiowide', monospace;
   font-size: 11px;
   letter-spacing: 0.26em;
@@ -1191,7 +1191,6 @@ body::before {
   margin: -6px auto;
   padding: 0 !important;
   border-radius: 50%;
-  background: rgba(255,255,255,0.78);
   border: 1px solid rgba(191,111,94,0.07);
   box-shadow: 0 4px 12px rgba(137, 86, 73, 0.06);
   overflow: hidden;
