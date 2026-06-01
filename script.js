@@ -400,6 +400,28 @@ if (invitado) {
   if (inputNombre && !inputNombre.value) inputNombre.value = nombre;
 }
 
+const musica = document.getElementById("musicaFondo");
+
+musica.volume = 0.25;
+
+function activarMusica() {
+    musica.play();
+
+    // Quitamos los eventos para que no intente reproducirla muchas veces
+    window.removeEventListener("scroll", activarMusica);
+    window.removeEventListener("click", activarMusica);
+    window.removeEventListener("touchstart", activarMusica);
+}
+
+// En ordenador: al hacer scroll o click
+window.addEventListener("scroll", activarMusica, { once: true });
+
+// En móvil: muchas veces el primer gesto es tocar la pantalla
+window.addEventListener("touchstart", activarMusica, { once: true });
+
+// Por si el usuario hace click en algún sitio
+window.addEventListener("click", activarMusica, { once: true });
+
 toggleAsistencia();
 toggleAcompanante();
 toggleNinos();
