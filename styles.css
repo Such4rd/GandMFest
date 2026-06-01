@@ -2056,15 +2056,32 @@ nav a {
   border-radius: 0 !important;
 }
 #plan .skyline-icon {
-  width: 34px;
-  height: 34px;
-  display: block;
+  width: 28px;
+  height: 28px;
   fill: none;
-  stroke: #000;
+  stroke: currentColor;
   stroke-width: 2.4;
   stroke-linecap: round;
   stroke-linejoin: round;
 }
 
-.skyline-inline{width:22px;height:22px;vertical-align:middle;margin-right:8px;stroke:#000;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;}
+
+
 .info-accordion summary span{display:flex;align-items:center;gap:8px;}
+
+
+.skyline-inline {
+  width: 24px;
+  height: 24px;
+  vertical-align: middle;
+  margin-right: 8px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.icon-fill {
+  fill: currentColor;
+  stroke: none;
+}

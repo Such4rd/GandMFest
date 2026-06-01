@@ -1,4 +1,4 @@
-const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxcuNuH732qhHAp3wcKF7h3rzL2pU-OSG6qUfWEfWtziiz63f_zNXt233fyP1ROGysZ/exec';
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwDK5_DNJ2XUsipcvWNHEsbnOPx5p6jLF0tKg0U2B-IITILyqUYbyauCPDwg1XIcFWp/exec';
 
 const params = new URLSearchParams(window.location.search);
 
