@@ -401,7 +401,6 @@ if (invitado) {
 }
 
 const musica = document.getElementById("musicaFondo");
-
 musica.volume = 0.25;
 
 function activarMusica() {
@@ -421,6 +420,38 @@ window.addEventListener("touchstart", activarMusica, { once: true });
 
 // Por si el usuario hace click en algún sitio
 window.addEventListener("click", activarMusica, { once: true });
+
+// Control de pestañas: pausar al salir, reanudar al volver
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden) {
+    // Usuario se va: pausamos si estaba sonando
+    if (!musica.paused) {
+      musica.pause();
+      musica.dataset.reanudar = 'si';
+    }
+  } else {
+    // Usuario vuelve: reanudamos solo si la pausamos nosotros
+    if (musica.dataset.reanudar === 'si') {
+      musica.play().catch(err => console.log('Autoplay bloqueado al volver:', err));
+      delete musica.dataset.reanudar;
+    }
+  }
+});
+
+// Backup para iOS Safari que a veces no dispara visibilitychange
+window.addEventListener('pagehide', () => {
+  if (!musica.paused) {
+    musica.pause();
+    musica.dataset.reanudar = 'si';
+  }
+});
+
+window.addEventListener('pageshow', () => {
+  if (musica.dataset.reanudar === 'si') {
+    musica.play().catch(() => {});
+    delete musica.dataset.reanudar;
+  }
+});
 
 toggleAsistencia();
 toggleAcompanante();
