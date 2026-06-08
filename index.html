@@ -114,7 +114,7 @@
       <div class="timeline-divider">SÁBADO 17</div>
 
       <div class="timeline-item">
-        <div class="t-time">12:30h</div>
+        <div class="t-time">11:30h</div>
         <div class="t-line"><div class="t-dot"></div></div>
         <div class="t-content">
           <div class="t-header">
@@ -126,7 +126,7 @@
       </div>
 
       <div class="timeline-item">
-        <div class="t-time">13:00h</div>
+        <div class="t-time">12:00h</div>
         <div class="t-line"><div class="t-dot"></div></div>
         <div class="t-content">
           <div class="t-header">
@@ -374,7 +374,7 @@
           </div>
 
           <div class="form-group full">
-            <label>🚍 ¿Necesitarás autobús?</label>
+            <label> ¿Necesitarás autobús para ir a la finca?</label>
             <select id="autobus">
               <option value="">Seleccionar</option>
               <option value="Salida desde Novelda">Salida desde Novelda</option>
@@ -419,12 +419,12 @@
 
           <div class="form-group full">
             <label>Canción para el festival</label>
-            <textarea id="cancion" placeholder="La añadiremos a la playlist de la boda..."></textarea>
+            <textarea id="cancion" placeholder="Dejanos una canción que te gustaría escuchar..."></textarea>
           </div>
 
           <div class="form-group full">
             <label>Mensaje para los novios</label>
-            <textarea id="mensaje-novios" placeholder="Déjanos un mensaje si te apetece..."></textarea>
+            <textarea id="mensaje-novios" placeholder="Si te apetece puedes dejar un mensajito para los novios..."></textarea>
           </div>
 
           <button class="btn-submit" id="btn-confirmar" onclick="submitRSVP()">CONFIRMAR ASISTENCIA →</button>
@@ -432,8 +432,8 @@
           <div class="recovery-area recovery-area-rsvp">
             <button type="button" class="recovery-toggle" onclick="toggleRecoveryArea()">Área de recuperación</button>
             <div id="recovery-panel" class="recovery-panel" hidden>
-              <p>Gracias por venir a liarla con nosotros ❤️</p>
-              <p>Si además queréis colaborar con la recuperación post-festival 😏</p>
+              <p>Gracias por venir a liarla con nosotros </p>
+              <p>Si además queréis colaborar con la recuperación post-festival </p>
               <div class="iban-copy">
                 <code id="iban-text">ES81 0081 1026 9100 0160 9868</code>
                 <button type="button" onclick="copyIban()">Copiar</button>
@@ -480,6 +480,8 @@
 </footer>
 
 <script src="script.js"></script>
+<script src="protect.js"></script>
+
 <div id="toast"></div>
 </body>
 </html>
