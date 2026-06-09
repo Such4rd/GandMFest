@@ -2,6 +2,38 @@ const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwDK5_DNJ2XUsip
 
 const params = new URLSearchParams(window.location.search);
 
+
+// ===============================
+// SELECTOR DE TEMA
+// ===============================
+const THEME_STORAGE_KEY = 'bodorrio-fest-theme';
+const AVAILABLE_THEMES = ['actual', 'verde', 'azul', 'noche', 'dorado'];
+
+function aplicarTema(theme) {
+  const selectedTheme = AVAILABLE_THEMES.includes(theme) ? theme : 'actual';
+  document.body.dataset.theme = selectedTheme;
+  localStorage.setItem(THEME_STORAGE_KEY, selectedTheme);
+
+  document.querySelectorAll('[data-theme-option]').forEach(btn => {
+    const active = btn.dataset.themeOption === selectedTheme;
+    btn.classList.toggle('active', active);
+    btn.setAttribute('aria-pressed', active ? 'true' : 'false');
+  });
+}
+
+function iniciarSelectorTema() {
+  const themeFromUrl = new URLSearchParams(window.location.search).get('theme');
+  const savedTheme = localStorage.getItem(THEME_STORAGE_KEY);
+  aplicarTema(themeFromUrl || savedTheme || document.body.dataset.theme || 'actual');
+
+  document.querySelectorAll('[data-theme-option]').forEach(btn => {
+    btn.addEventListener('click', () => aplicarTema(btn.dataset.themeOption));
+  });
+}
+
+iniciarSelectorTema();
+
+
 // COUNTDOWN
 function updateCountdown() {
   const target = new Date('2026-10-17T11:00:00').getTime();

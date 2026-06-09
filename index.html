@@ -19,7 +19,7 @@
 <meta property="og:type" content="website">
 </head>
 
-<body>
+<body data-theme="actual">
 
 <audio id="musicaFondo" loop>
   <source src="./backsong.mp3" type="audio/mpeg">
@@ -36,6 +36,15 @@
   <a href="#extra-info">Info extra</a>
   <a href="#rsvp">Confirmación</a>
 </nav>
+
+<!-- SELECTOR DE TEMA -->
+<div class="theme-switcher" aria-label="Selector de tema de color">
+  <button type="button" data-theme-option="actual" aria-label="Tema actual"><span></span>Actual</button>
+  <button type="button" data-theme-option="verde" aria-label="Tema verde"><span></span>Verde</button>
+  <button type="button" data-theme-option="azul" aria-label="Tema azul"><span></span>Azul</button>
+  <button type="button" data-theme-option="noche" aria-label="Tema noche"><span></span>Noche</button>
+  <button type="button" data-theme-option="dorado" aria-label="Tema dorado"><span></span>Dorado</button>
+</div>
 
 <!-- HERO -->
 <section id="hero">
