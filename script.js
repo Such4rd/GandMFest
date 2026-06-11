@@ -433,55 +433,98 @@ if (invitado) {
 }
 
 const musica = document.getElementById("musicaFondo");
-musica.volume = 0.25;
 
-function activarMusica() {
-    musica.play();
+let musicaActivada = false;
+let pausadaPorCambioPestana = false;
 
-    // Quitamos los eventos para que no intente reproducirla muchas veces
-    window.removeEventListener("scroll", activarMusica);
-    window.removeEventListener("click", activarMusica);
-    window.removeEventListener("touchstart", activarMusica);
+if (musica) {
+  musica.volume = 0.25;
+  musica.loop = true;
+  musica.preload = "auto";
 }
 
-// En ordenador: al hacer scroll o click
-window.addEventListener("scroll", activarMusica, { once: true });
+async function activarMusica() {
+  if (!musica || musicaActivada) return;
 
-// En móvil: muchas veces el primer gesto es tocar la pantalla
-window.addEventListener("touchstart", activarMusica, { once: true });
+  try {
+    await musica.play();
 
-// Por si el usuario hace click en algún sitio
-window.addEventListener("click", activarMusica, { once: true });
+    musicaActivada = true;
 
-// Control de pestañas: pausar al salir, reanudar al volver
-document.addEventListener('visibilitychange', () => {
+    // Quitamos los eventos solo cuando la música haya arrancado bien
+    quitarEventosIniciales();
+
+    console.log("Música activada correctamente");
+  } catch (err) {
+    console.log("El navegador ha bloqueado la música de momento:", err.name);
+
+    // Importante:
+    // No quitamos los eventos si falla.
+    // Así el siguiente toque/click volverá a intentarlo.
+  }
+}
+
+function quitarEventosIniciales() {
+  window.removeEventListener("pointerdown", activarMusica);
+  window.removeEventListener("touchend", activarMusica);
+  window.removeEventListener("click", activarMusica);
+  window.removeEventListener("keydown", activarMusica);
+}
+
+/*
+  Activación por primera interacción real.
+  No usamos scroll porque en móviles no siempre cuenta como gesto válido.
+*/
+window.addEventListener("pointerdown", activarMusica);
+window.addEventListener("touchend", activarMusica);
+window.addEventListener("click", activarMusica);
+window.addEventListener("keydown", activarMusica);
+
+/*
+  Pausar al salir de la pestaña y reanudar al volver.
+*/
+document.addEventListener("visibilitychange", () => {
+  if (!musica) return;
+
   if (document.hidden) {
-    // Usuario se va: pausamos si estaba sonando
     if (!musica.paused) {
       musica.pause();
-      musica.dataset.reanudar = 'si';
+      pausadaPorCambioPestana = true;
     }
   } else {
-    // Usuario vuelve: reanudamos solo si la pausamos nosotros
-    if (musica.dataset.reanudar === 'si') {
-      musica.play().catch(err => console.log('Autoplay bloqueado al volver:', err));
-      delete musica.dataset.reanudar;
+    if (pausadaPorCambioPestana && musicaActivada) {
+      musica.play()
+        .then(() => {
+          pausadaPorCambioPestana = false;
+        })
+        .catch(err => {
+          console.log("No se pudo reanudar la música:", err.name);
+        });
     }
   }
 });
 
-// Backup para iOS Safari que a veces no dispara visibilitychange
-window.addEventListener('pagehide', () => {
+/*
+  Backup para algunos móviles.
+*/
+window.addEventListener("pagehide", () => {
+  if (!musica) return;
+
   if (!musica.paused) {
     musica.pause();
-    musica.dataset.reanudar = 'si';
+    pausadaPorCambioPestana = true;
   }
 });
 
-window.addEventListener('pageshow', () => {
-  if (musica.dataset.reanudar === 'si') {
-    musica.play().catch(() => {});
-    delete musica.dataset.reanudar;
+window.addEventListener("pageshow", () => {
+  if (!musica) return;
+
+  if (pausadaPorCambioPestana && musicaActivada) {
+    musica.play()
+      .then(() => {
+        pausadaPorCambioPestana = false;
+      })
+      .catch(() => {});
   }
 });
 

@@ -24,6 +24,7 @@
 <audio id="musicaFondo" loop>
   <source src="./backsong.mp3" type="audio/mpeg">
 </audio>
+<audio id="musicaFondo" src="./backsong.mp3" loop preload="auto"></audio>
 
 <div class="skyline-watermark" aria-hidden="true"></div>
 
@@ -37,7 +38,8 @@
   <a href="#rsvp">Confirmación</a>
 </nav>
 
-<!-- SELECTOR DE TEMA -->
+<!-- SELECTOR DE TEMA 
+ /*
 <div class="theme-switcher" aria-label="Selector de tema de color">
   <button type="button" data-theme-option="actual" aria-label="Tema actual"><span></span>Actual</button>
   <button type="button" data-theme-option="verde" aria-label="Tema verde"><span></span>Verde</button>
@@ -45,6 +47,7 @@
   <button type="button" data-theme-option="noche" aria-label="Tema noche"><span></span>Noche</button>
   <button type="button" data-theme-option="dorado" aria-label="Tema dorado"><span></span>Dorado</button>
 </div>
+-->
 
 <!-- HERO -->
 <section id="hero">
@@ -438,17 +441,37 @@
 
           <button class="btn-submit" id="btn-confirmar" onclick="submitRSVP()">CONFIRMAR ASISTENCIA →</button>
 
-          <div class="recovery-area recovery-area-rsvp">
-            <button type="button" class="recovery-toggle" onclick="toggleRecoveryArea()">Área de recuperación</button>
-            <div id="recovery-panel" class="recovery-panel" hidden>
-              <p>Gracias por venir a liarla con nosotros </p>
-              <p>Si además queréis colaborar con la recuperación post-festival </p>
-              <div class="iban-copy">
-                <code id="iban-text">ES81 0081 1026 9100 0160 9868</code>
-                <button type="button" onclick="copyIban()">Copiar</button>
-              </div>
-            </div>
-          </div>
+<div class="recovery-area recovery-area-rsvp">
+  <button type="button" class="recovery-toggle" onclick="toggleRecoveryArea()">
+    Área de recuperación
+  </button>
+
+  <div id="recovery-panel" class="recovery-panel recovery-festi-panel" hidden>
+    
+
+    <p class="recovery-line">
+      <span>Gracias por venir a liarla con nosotros</span>
+      <svg class="recovery-icon heart-icon" viewBox="0 0 64 64" aria-hidden="true">
+        <path d="M32 52S12 40 12 24c0-6 4-10 10-10c4 0 8 2 10 6c2-4 6-6 10-6c6 0 10 4 10 10c0 16-20 28-20 28z"/>
+      </svg>
+    </p>
+
+    <p class="recovery-line">
+      <span>Para quien quiera sumar un poquito al recovery post-festival</span>
+      <svg class="recovery-icon smile-icon" viewBox="0 0 64 64" aria-hidden="true">
+        <circle cx="32" cy="32" r="18"/>
+        <path d="M25 27h.01"/>
+        <path d="M39 27h.01"/>
+        <path d="M24 38c2.5 4 5.5 6 8 6s5.5-2 8-6"/>
+      </svg>
+    </p>
+
+    <div class="iban-copy">
+      <code id="iban-text">ES81 0081 1026 9100 0160 9868</code>
+      <button type="button" onclick="copyIban()">Copiar</button>
+    </div>
+  </div>
+</div>
         </div>
 
         <!-- Botón enviar no asiste -->
@@ -465,7 +488,7 @@
 
     <div id="form-loading" class="form-loading" style="display: none;">
       <div class="loader"></div>
-        <p>Guardando confirmación...</p>
+        <p>Gestionando aforo...</p>
     </div>
 
     <div class="form-success" id="form-success">

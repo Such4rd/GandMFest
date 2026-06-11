@@ -1912,6 +1912,7 @@ nav a {
 
 .iban-copy {
   margin-top: 12px;
+  margin-left: 30px;
   display: flex;
   gap: 8px;
   flex-wrap: wrap;
@@ -2516,5 +2517,173 @@ body[data-theme] .theme-switcher {
     font-size: 7px;
     padding: 7px 8px;
     white-space: nowrap;
+  }
+}
+.recovery-area {
+  position: relative;
+  text-align: center;
+}
+
+.recovery-toggle {
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+/* Cuando el botón se pulse, da sensación de "zona secreta" */
+.recovery-toggle:active {
+  transform: scale(0.98);
+}
+
+/* Panel con efecto festivalero suave */
+.recovery-festi-panel {
+  position: relative;
+  overflow: hidden;
+  animation: recoveryPop 0.45s ease-out both;
+}
+
+/* Líneas de texto + icono */
+.recovery-line {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 8px 0;
+  text-align: center;
+}
+
+.recovery-line span {
+  display: inline-block;
+}
+
+/* Iconos outlined */
+.recovery-icon {
+  width: 24px;
+  height: 24px;
+  flex: 0 0 auto;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Corazón: latido suave */
+.heart-icon {
+  animation: heartBeat 1.25s ease-in-out infinite;
+  transform-origin: center;
+}
+
+/* Carita: saltito suave */
+.smile-icon {
+  animation: smileBounce 1.45s ease-in-out infinite;
+  transform-origin: center;
+}
+
+/* IBAN centrado */
+.iban-copy {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 14px;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.iban-copy code {
+  text-align: center;
+  display: inline-block;
+}
+
+
+
+.recovery-sparkles span {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border: 1.8px solid currentColor;
+  transform: rotate(45deg);
+  opacity: 0.28;
+  animation: sparkleFloat 2.6s ease-in-out infinite;
+}
+
+.recovery-sparkles span:nth-child(1) {
+  top: 14%;
+  left: 12%;
+  animation-delay: 0s;
+}
+
+.recovery-sparkles span:nth-child(2) {
+  top: 20%;
+  right: 14%;
+  animation-delay: 0.4s;
+}
+
+.recovery-sparkles span:nth-child(3) {
+  bottom: 18%;
+  left: 18%;
+  animation-delay: 0.8s;
+}
+
+.recovery-sparkles span:nth-child(4) {
+  bottom: 16%;
+  right: 18%;
+  animation-delay: 1.2s;
+}
+
+/* Entrada del panel */
+@keyframes recoveryPop {
+  0% {
+    opacity: 0;
+    transform: translateY(10px) scale(0.96);
+  }
+
+  70% {
+    opacity: 1;
+    transform: translateY(-2px) scale(1.02);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Latido */
+@keyframes heartBeat {
+  0%, 100% {
+    transform: scale(1);
+  }
+
+  20% {
+    transform: scale(1.18);
+  }
+
+  40% {
+    transform: scale(0.96);
+  }
+
+  60% {
+    transform: scale(1.08);
+  }
+}
+
+/* Saltito */
+@keyframes smileBounce {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  35% {
+    transform: translateY(-4px) rotate(-5deg);
+  }
+
+  70% {
+    transform: translateY(1px) rotate(5deg);
   }
 }
