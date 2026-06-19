@@ -2467,17 +2467,36 @@ body button[type="submit"] {
 :root {
   --hero-orange-main: #FF7F24;
   --hero-orange-main-rgb: 255, 127, 36;
-  --hero-orange-deep: #A94B0D;
+  --hero-orange-light: #FFB25E;
+  --hero-orange-deep: #8E3A12;
+  --hero-near-black: #181413;
+  --hero-title-gradient: linear-gradient(
+    180deg,
+    var(--hero-orange-light) 0%,
+    var(--hero-orange-main) 38%,
+    var(--hero-orange-deep) 68%,
+    var(--hero-near-black) 100%
+  );
 }
 
-/* Mario & Gema y números del contador en naranja, manteniendo el glitch */
-body .hero-names,
+/*
+  Color principal de portada:
+  cambiamos el naranja plano por un degradado naranja -> negro.
+  Se aplica a MARIO & GEMA, a la &, al contador y a ¡NOS CASAMOS!.
+*/
+body .hero-tag,
+body .hero-names .name-left,
+body .hero-names .name-right,
 body .hero-names .amp,
 body .counter-num {
-  color: var(--hero-orange-main) !important;
+  color: transparent !important;
+  background-image: var(--hero-title-gradient) !important;
+  background-clip: text !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
   text-shadow:
-    0 1px 0 rgba(255,255,255,0.28),
-    0 0 18px rgba(var(--hero-orange-main-rgb),0.14) !important;
+    0 1px 0 rgba(255,255,255,0.24),
+    0 0 18px rgba(var(--hero-orange-main-rgb),0.13) !important;
 }
 
 /* Solo cambiamos la tipografía de la &, para que se lea claramente como ampersand */
@@ -2491,46 +2510,82 @@ body .hero-names .amp {
   transform: translateY(-0.02em) !important;
 }
 
-body .hero-names .glitch::before {
-  color: rgba(255, 166, 86, 0.48) !important;
+/* Efecto glitch/blurred de MARIO & GEMA en tonos naranja-negro */
+body .hero-names .glitch::before,
+body .hero-tag.glitch::before {
+  color: rgba(255, 166, 86, 0.50) !important;
+  -webkit-text-fill-color: rgba(255, 166, 86, 0.50) !important;
+  text-shadow: 0 0 7px rgba(255, 127, 36, 0.22) !important;
 }
 
-body .hero-names .glitch::after {
-  color: rgba(169, 75, 13, 0.40) !important;
+body .hero-names .glitch::after,
+body .hero-tag.glitch::after {
+  color: rgba(45, 25, 18, 0.44) !important;
+  -webkit-text-fill-color: rgba(45, 25, 18, 0.44) !important;
+  text-shadow: 0 0 9px rgba(24, 20, 19, 0.18) !important;
+}
+
+/* ¡NOS CASAMOS! más grande y con el mismo juego visual que MARIO & GEMA */
+body .hero-tag {
+  display: inline-block !important;
+  font-size: clamp(16px, 2.2vw, 24px) !important;
+  line-height: 1.08 !important;
+  letter-spacing: 0.24em !important;
+  position: relative !important;
+}
+
+body .hero-tag.glitch::before,
+body .hero-tag.glitch::after {
+  font-family: inherit !important;
+  font-size: inherit !important;
+  letter-spacing: inherit !important;
+  line-height: inherit !important;
 }
 
 @media (max-width: 720px) {
   /* Separación entre: ¡NOS CASAMOS! -> MARIO & GEMA */
   body .hero-tag {
-    margin-bottom: 32px !important;
-    line-height: 1.35 !important;
+    font-size: clamp(18px, 5.1vw, 24px) !important;
+    letter-spacing: 0.18em !important;
+    margin-bottom: 28px !important;
+    line-height: 1.12 !important;
   }
 
   /* Separación entre: MARIO & GEMA -> Bodorrio Fest */
   body .hero-subtitle {
-    margin-top: 28px !important;
-    line-height: 1.08 !important;
+    margin-top: 8px !important;
+    line-height: 1.04 !important;
   }
 
   /* Separación entre: Bodorrio Fest -> Fecha */
   body .hero-date {
-    margin-top: 36px !important;
-    line-height: 1.35 !important;
+    margin-top: 34px !important;
+    line-height: 1.28 !important;
   }
 
   /* Separación entre: Fecha -> Contador */
   body .counter-wrap {
-    margin-top: 44px !important;
+    margin-top: 16px !important;
   }
 }
 
 @media (max-width: 380px) {
+  body .hero-tag {
+    font-size: clamp(16px, 5vw, 21px) !important;
+    letter-spacing: 0.14em !important;
+    margin-bottom: 24px !important;
+  }
+
+  body .hero-subtitle {
+    margin-top: 6px !important;
+  }
+
   body .counter-wrap {
-    margin-top: 36px !important;
+    margin-top: 14px !important;
   }
 }
 
-/* Separadores del contador en el mismo naranja de la corrección */
+/* Separadores del contador adaptados al degradado naranja-negro */
 body .counter-sep {
-  background: rgba(var(--hero-orange-main-rgb), 0.45) !important;
+  background: linear-gradient(180deg, rgba(var(--hero-orange-main-rgb), 0.62), rgba(24, 20, 19, 0.42)) !important;
 }
