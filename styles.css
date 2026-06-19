@@ -2465,16 +2465,17 @@ body button[type="submit"] {
    CORRECCIONES PORTADA MÓVIL — JUNIO 2026
    ========================================================= */
 :root {
-  --hero-orange-main: #FF7F24;
-  --hero-orange-main-rgb: 255, 127, 36;
-  --hero-orange-light: #FFB25E;
-  --hero-orange-deep: #8E3A12;
-  --hero-near-black: #181413;
+  --hero-orange-main: #A5655F;
+  --hero-orange-main-rgb: 165, 101, 95;
+  --hero-orange-light: #C28279;
+  --hero-orange-deep: #4A2C2A;
+  --hero-near-black: #141111;
   --hero-title-gradient: linear-gradient(
     180deg,
     var(--hero-orange-light) 0%,
-    var(--hero-orange-main) 38%,
-    var(--hero-orange-deep) 68%,
+    var(--hero-orange-main) 18%,
+    #6F433F 38%,
+    var(--hero-orange-deep) 62%,
     var(--hero-near-black) 100%
   );
 }
@@ -2495,8 +2496,8 @@ body .counter-num {
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
   text-shadow:
-    0 1px 0 rgba(255,255,255,0.24),
-    0 0 18px rgba(var(--hero-orange-main-rgb),0.13) !important;
+    0 1px 0 rgba(255,255,255,0.18),
+    0 0 16px rgba(var(--hero-orange-main-rgb),0.10) !important;
 }
 
 /* Solo cambiamos la tipografía de la &, para que se lea claramente como ampersand */
@@ -2513,16 +2514,16 @@ body .hero-names .amp {
 /* Efecto glitch/blurred de MARIO & GEMA en tonos naranja-negro */
 body .hero-names .glitch::before,
 body .hero-tag.glitch::before {
-  color: rgba(255, 166, 86, 0.50) !important;
-  -webkit-text-fill-color: rgba(255, 166, 86, 0.50) !important;
-  text-shadow: 0 0 7px rgba(255, 127, 36, 0.22) !important;
+  color: rgba(178, 112, 106, 0.42) !important;
+  -webkit-text-fill-color: rgba(178, 112, 106, 0.42) !important;
+  text-shadow: 0 0 7px rgba(165, 101, 95, 0.18) !important;
 }
 
 body .hero-names .glitch::after,
 body .hero-tag.glitch::after {
-  color: rgba(45, 25, 18, 0.44) !important;
-  -webkit-text-fill-color: rgba(45, 25, 18, 0.44) !important;
-  text-shadow: 0 0 9px rgba(24, 20, 19, 0.18) !important;
+  color: rgba(30, 21, 21, 0.42) !important;
+  -webkit-text-fill-color: rgba(30, 21, 21, 0.42) !important;
+  text-shadow: 0 0 9px rgba(20, 17, 17, 0.18) !important;
 }
 
 /* ¡NOS CASAMOS! más grande y con el mismo juego visual que MARIO & GEMA */
@@ -2587,5 +2588,5 @@ body .hero-tag.glitch::after {
 
 /* Separadores del contador adaptados al degradado naranja-negro */
 body .counter-sep {
-  background: linear-gradient(180deg, rgba(var(--hero-orange-main-rgb), 0.62), rgba(24, 20, 19, 0.42)) !important;
+  background: linear-gradient(180deg, rgba(var(--hero-orange-main-rgb), 0.52), rgba(20, 17, 17, 0.50)) !important;
 }
