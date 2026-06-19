@@ -2480,6 +2480,17 @@ body .counter-num {
     0 0 18px rgba(var(--hero-orange-main-rgb),0.14) !important;
 }
 
+/* Solo cambiamos la tipografía de la &, para que se lea claramente como ampersand */
+body .hero-names .amp {
+  font-family: 'Cormorant Garamond', Georgia, serif !important;
+  font-style: italic !important;
+  font-weight: 700 !important;
+  font-size: 1.05em !important;
+  line-height: 0.82 !important;
+  margin: 0 0.055em !important;
+  transform: translateY(-0.02em) !important;
+}
+
 body .hero-names .glitch::before {
   color: rgba(255, 166, 86, 0.48) !important;
 }
