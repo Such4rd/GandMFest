@@ -2488,69 +2488,34 @@ body .hero-names .glitch::after {
   color: rgba(169, 75, 13, 0.40) !important;
 }
 
-/* Skyline algo mayor también en escritorio/tablet */
-body .hero-skyline {
-  width: min(92vw, 820px) !important;
-  height: clamp(92px, 13vw, 148px) !important;
-}
-
 @media (max-width: 720px) {
-  body #hero {
-    padding-top: clamp(116px, 15vh, 140px) !important;
-    padding-bottom: 62px !important;
-  }
-
-  /* Más aire entre las líneas principales de la portada */
+  /* Separación entre: ¡NOS CASAMOS! -> MARIO & GEMA */
   body .hero-tag {
-    margin-bottom: 16px !important;
+    margin-bottom: 32px !important;
     line-height: 1.35 !important;
   }
 
-  body .hero-names {
-    font-size: clamp(42px, 11.8vw, 70px) !important;
-    line-height: 1 !important;
-    margin: 0 !important;
-  }
-
+  /* Separación entre: MARIO & GEMA -> Bodorrio Fest */
   body .hero-subtitle {
-    margin-top: 14px !important;
+    margin-top: 28px !important;
     line-height: 1.08 !important;
   }
 
+  /* Separación entre: Bodorrio Fest -> Fecha */
   body .hero-date {
-    margin-top: 18px !important;
+    margin-top: 36px !important;
     line-height: 1.35 !important;
   }
 
+  /* Separación entre: Fecha -> Contador */
   body .counter-wrap {
-    margin-top: 22px !important;
-  }
-
-  /* En móvil el skyline pasa al flujo normal para quedar cerca del contador
-     y ocupar más pantalla, evitando el hueco vacío inferior. */
-  body .hero-skyline {
-    position: relative !important;
-    left: auto !important;
-    bottom: auto !important;
-    transform: none !important;
-    width: min(118vw, 560px) !important;
-    max-width: none !important;
-    height: clamp(150px, 44vw, 190px) !important;
-    margin: 24px auto 0 !important;
-    background-size: 100% auto !important;
-    background-position: center center !important;
+    margin-top: 44px !important;
   }
 }
 
 @media (max-width: 380px) {
-  body .hero-skyline {
-    width: 122vw !important;
-    height: 150px !important;
-    margin-top: 18px !important;
-  }
-
   body .counter-wrap {
-    margin-top: 18px !important;
+    margin-top: 36px !important;
   }
 }
 
