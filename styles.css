@@ -2591,179 +2591,58 @@ body .counter-sep {
   background: linear-gradient(180deg, rgba(var(--hero-orange-main-rgb), 0.52), rgba(20, 17, 17, 0.50)) !important;
 }
 
-/* =========================================================
-   EFECTO GLITCH/BLURRED EN ENCABEZADOS Y BOTÓN — JUNIO 2026
-   ========================================================= */
-body .section-title-glow {
-  line-height: 1.02 !important;
-}
 
-body .section-title-glow .section-glitch-line,
-body .submit-glitch .submit-glitch-text {
+/* =========================================================
+   EFECTO GLITCH REUTILIZADO EN SECCIONES Y BOTÓN — JUNIO 2026
+   =========================================================
+   Se usa la misma clase base .glitch que ya tienen MARIO, GEMA y ¡NOS CASAMOS!.
+   Aquí solo se adapta el color/degradado al tamaño de las cabeceras y al botón.
+*/
+body .section-title .glitch,
+body .btn-submit .glitch {
   position: relative !important;
   display: inline-block !important;
-  font-family: 'Audiowide', serif !important;
   color: transparent !important;
   background-image: var(--hero-title-gradient) !important;
   background-clip: text !important;
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
   text-shadow:
-    0 1px 0 rgba(255,255,255,0.15),
+    0 1px 0 rgba(255,255,255,0.18),
     0 0 16px rgba(var(--hero-orange-main-rgb),0.10) !important;
 }
 
-body .section-title-glow .section-glitch-line::before,
-body .submit-glitch .submit-glitch-text::before {
+/* Mismo tratamiento visual que MARIO & GEMA / ¡NOS CASAMOS!: no se inventa otro efecto. */
+body .section-title .glitch::before,
+body .btn-submit .glitch::before {
   color: rgba(178, 112, 106, 0.42) !important;
   -webkit-text-fill-color: rgba(178, 112, 106, 0.42) !important;
-  text-shadow: 0 0 7px rgba(var(--hero-orange-main-rgb), 0.18) !important;
-  clip-path: polygon(0 0, 100% 0, 100% 42%, 0 42%) !important;
+  text-shadow: 0 0 7px rgba(165, 101, 95, 0.18) !important;
 }
 
-body .section-title-glow .section-glitch-line::after,
-body .submit-glitch .submit-glitch-text::after {
+body .section-title .glitch::after,
+body .btn-submit .glitch::after {
   color: rgba(30, 21, 21, 0.42) !important;
   -webkit-text-fill-color: rgba(30, 21, 21, 0.42) !important;
   text-shadow: 0 0 9px rgba(20, 17, 17, 0.18) !important;
-  clip-path: polygon(0 58%, 100% 58%, 100% 100%, 0 100%) !important;
 }
 
-body .submit-glitch {
-  border: 1px solid rgba(var(--hero-orange-main-rgb), 0.32) !important;
-  background:
-    linear-gradient(135deg, rgba(255,255,255,0.72), rgba(var(--hero-orange-main-rgb),0.08)),
-    rgba(255,255,255,0.42) !important;
-  box-shadow: 0 16px 38px rgba(82, 48, 44, 0.12) !important;
-  overflow: hidden !important;
+body .section-title {
+  line-height: 1.02 !important;
 }
 
-body .submit-glitch:hover {
-  background:
-    linear-gradient(135deg, rgba(255,255,255,0.82), rgba(var(--hero-orange-main-rgb),0.14)),
-    rgba(255,255,255,0.52) !important;
-  box-shadow: 0 18px 42px rgba(82, 48, 44, 0.18) !important;
-}
-
-@media (max-width: 720px) {
-  body .section-title-glow .section-glitch-line {
-    letter-spacing: 0.035em !important;
-  }
-
-  body .submit-glitch .submit-glitch-text {
-    font-size: clamp(14px, 3.9vw, 18px) !important;
-    letter-spacing: 0.12em !important;
-  }
-}
-
-
-/* =========================================================
-   EFECTO GLITCH/BLURRED REFORZADO EN SECCIONES Y BOTÓN — JUNIO 2026
-   =========================================================
-   Este bloque sobrescribe el bloque anterior porque el efecto quedaba
-   demasiado sutil. Ahora los duplicados ::before y ::after quedan visibles
-   siempre, con desplazamiento y blur suave, como en MARIO & GEMA.
-*/
-body .section-title-glow {
-  line-height: 0.98 !important;
-  color: transparent !important;
-}
-
-body .section-title-glow .section-glitch-line,
-body .submit-glitch .submit-glitch-text {
-  position: relative !important;
-  display: inline-block !important;
-  font-family: 'Audiowide', sans-serif !important;
-  color: transparent !important;
-  background-image: var(--hero-title-gradient) !important;
-  background-size: 100% 115% !important;
-  background-position: 50% 38% !important;
-  background-clip: text !important;
-  -webkit-background-clip: text !important;
-  -webkit-text-fill-color: transparent !important;
-  text-shadow:
-    0 1px 0 rgba(255,255,255,0.14),
-    0 8px 20px rgba(41, 24, 23, 0.16),
-    0 0 20px rgba(var(--hero-orange-main-rgb), 0.16) !important;
-  filter: drop-shadow(0 1px 0 rgba(255,255,255,0.10)) !important;
-}
-
-body .section-title-glow .section-glitch-line::before,
-body .section-title-glow .section-glitch-line::after,
-body .submit-glitch .submit-glitch-text::before,
-body .submit-glitch .submit-glitch-text::after {
-  content: attr(data-text) !important;
-  position: absolute !important;
-  inset: 0 !important;
-  width: 100% !important;
-  height: 100% !important;
-  font-family: inherit !important;
-  font-size: inherit !important;
-  font-weight: inherit !important;
-  line-height: inherit !important;
-  letter-spacing: inherit !important;
-  pointer-events: none !important;
-  animation: none !important; /* dejamos el blur visible, no solo en momentos de glitch */
-}
-
-body .section-title-glow .section-glitch-line::before,
-body .submit-glitch .submit-glitch-text::before {
-  color: rgba(190, 111, 104, 0.58) !important;
-  -webkit-text-fill-color: rgba(190, 111, 104, 0.58) !important;
-  text-shadow:
-    -1px 0 0 rgba(190, 111, 104, 0.36),
-    0 0 11px rgba(var(--hero-orange-main-rgb), 0.26) !important;
-  transform: translate(-2px, -1px) skewX(-3deg) !important;
-  filter: blur(0.45px) !important;
-  clip-path: polygon(0 0, 100% 0, 100% 47%, 0 47%) !important;
-  opacity: 0.78 !important;
-}
-
-body .section-title-glow .section-glitch-line::after,
-body .submit-glitch .submit-glitch-text::after {
-  color: rgba(37, 24, 24, 0.66) !important;
-  -webkit-text-fill-color: rgba(37, 24, 24, 0.66) !important;
-  text-shadow:
-    1px 0 0 rgba(45, 29, 28, 0.36),
-    0 0 13px rgba(20, 17, 17, 0.24) !important;
-  transform: translate(2px, 1px) skewX(3deg) !important;
-  filter: blur(0.55px) !important;
-  clip-path: polygon(0 53%, 100% 53%, 100% 100%, 0 100%) !important;
-  opacity: 0.82 !important;
-}
-
-body .submit-glitch {
-  position: relative !important;
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  color: transparent !important;
-  border: 1px solid rgba(var(--hero-orange-main-rgb), 0.42) !important;
-  background:
-    linear-gradient(135deg, rgba(255,255,255,0.78), rgba(var(--hero-orange-main-rgb),0.13)),
-    rgba(255,255,255,0.46) !important;
-  box-shadow:
-    0 16px 38px rgba(82, 48, 44, 0.15),
-    inset 0 1px 0 rgba(255,255,255,0.38) !important;
-  overflow: visible !important; /* para que el blur no quede recortado */
-}
-
-body .submit-glitch .submit-glitch-text {
-  z-index: 1 !important;
+body .btn-submit .glitch {
+  font-family: 'Audiowide', serif !important;
+  letter-spacing: 0.12em !important;
   line-height: 1.05 !important;
 }
 
 @media (max-width: 720px) {
-  body .section-title-glow .section-glitch-line {
+  body .section-title .glitch {
     letter-spacing: 0.035em !important;
-    text-shadow:
-      0 1px 0 rgba(255,255,255,0.12),
-      0 7px 18px rgba(41, 24, 23, 0.15),
-      0 0 18px rgba(var(--hero-orange-main-rgb), 0.15) !important;
   }
 
-  body .submit-glitch .submit-glitch-text {
-    font-size: clamp(14px, 4vw, 18px) !important;
-    letter-spacing: 0.12em !important;
+  body .btn-submit .glitch {
+    font-size: clamp(14px, 3.9vw, 18px) !important;
   }
 }
