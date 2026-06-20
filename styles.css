@@ -2982,3 +2982,85 @@ body .hero-date {
     margin-top: 24px !important;
   }
 }
+
+
+/* =========================================================
+   AJUSTE RESPONSIVE TEXTOS LARGOS Y FOOTER — JUNIO 2026
+   =========================================================
+   Evita que títulos largos como RECOMENDACIONES se corten
+   en algunos móviles estrechos o navegadores con viewport raro.
+*/
+body .section-title,
+body .info-subtitle,
+body .info-card h3,
+body footer p {
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+body .section-title .glitch,
+body .info-subtitle .glitch {
+  max-width: 100% !important;
+  white-space: normal !important;
+  overflow-wrap: anywhere !important;
+  word-break: normal !important;
+  hyphens: auto !important;
+}
+
+@media (max-width: 720px) {
+  body .section-title {
+    font-size: clamp(24px, 9vw, 42px) !important;
+    letter-spacing: 0.045em !important;
+    line-height: 0.98 !important;
+    margin-bottom: 10px !important;
+  }
+
+  body .section-title .glitch {
+    font-size: inherit !important;
+    letter-spacing: inherit !important;
+  }
+
+  body .info-subtitle {
+    font-size: clamp(18px, 7.6vw, 30px) !important;
+    letter-spacing: 0.045em !important;
+    line-height: 1.02 !important;
+    margin-bottom: 8px !important;
+  }
+
+  body .info-subtitle .glitch {
+    display: inline-block !important;
+    max-width: 100% !important;
+  }
+
+  body .info-card h3 {
+    min-width: 0 !important;
+    font-size: clamp(16px, 6.8vw, 28px) !important;
+    line-height: 1.08 !important;
+    letter-spacing: 0.015em !important;
+    overflow-wrap: anywhere !important;
+  }
+
+  body .info-card {
+    overflow: hidden !important;
+  }
+}
+
+@media (max-width: 420px) {
+  body .section-title {
+    font-size: clamp(22px, 8.6vw, 34px) !important;
+    letter-spacing: 0.03em !important;
+  }
+
+  body .info-subtitle {
+    font-size: clamp(16px, 7.2vw, 24px) !important;
+    letter-spacing: 0.03em !important;
+  }
+
+  body .info-card h3 {
+    font-size: clamp(15px, 6.2vw, 22px) !important;
+  }
+}
+
+body footer p {
+  text-align: center !important;
+}
