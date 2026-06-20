@@ -2590,3 +2590,68 @@ body .hero-tag.glitch::after {
 body .counter-sep {
   background: linear-gradient(180deg, rgba(var(--hero-orange-main-rgb), 0.52), rgba(20, 17, 17, 0.50)) !important;
 }
+
+/* =========================================================
+   EFECTO GLITCH/BLURRED EN ENCABEZADOS Y BOTÓN — JUNIO 2026
+   ========================================================= */
+body .section-title-glow {
+  line-height: 1.02 !important;
+}
+
+body .section-title-glow .section-glitch-line,
+body .submit-glitch .submit-glitch-text {
+  position: relative !important;
+  display: inline-block !important;
+  font-family: 'Audiowide', serif !important;
+  color: transparent !important;
+  background-image: var(--hero-title-gradient) !important;
+  background-clip: text !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  text-shadow:
+    0 1px 0 rgba(255,255,255,0.15),
+    0 0 16px rgba(var(--hero-orange-main-rgb),0.10) !important;
+}
+
+body .section-title-glow .section-glitch-line::before,
+body .submit-glitch .submit-glitch-text::before {
+  color: rgba(178, 112, 106, 0.42) !important;
+  -webkit-text-fill-color: rgba(178, 112, 106, 0.42) !important;
+  text-shadow: 0 0 7px rgba(var(--hero-orange-main-rgb), 0.18) !important;
+  clip-path: polygon(0 0, 100% 0, 100% 42%, 0 42%) !important;
+}
+
+body .section-title-glow .section-glitch-line::after,
+body .submit-glitch .submit-glitch-text::after {
+  color: rgba(30, 21, 21, 0.42) !important;
+  -webkit-text-fill-color: rgba(30, 21, 21, 0.42) !important;
+  text-shadow: 0 0 9px rgba(20, 17, 17, 0.18) !important;
+  clip-path: polygon(0 58%, 100% 58%, 100% 100%, 0 100%) !important;
+}
+
+body .submit-glitch {
+  border: 1px solid rgba(var(--hero-orange-main-rgb), 0.32) !important;
+  background:
+    linear-gradient(135deg, rgba(255,255,255,0.72), rgba(var(--hero-orange-main-rgb),0.08)),
+    rgba(255,255,255,0.42) !important;
+  box-shadow: 0 16px 38px rgba(82, 48, 44, 0.12) !important;
+  overflow: hidden !important;
+}
+
+body .submit-glitch:hover {
+  background:
+    linear-gradient(135deg, rgba(255,255,255,0.82), rgba(var(--hero-orange-main-rgb),0.14)),
+    rgba(255,255,255,0.52) !important;
+  box-shadow: 0 18px 42px rgba(82, 48, 44, 0.18) !important;
+}
+
+@media (max-width: 720px) {
+  body .section-title-glow .section-glitch-line {
+    letter-spacing: 0.035em !important;
+  }
+
+  body .submit-glitch .submit-glitch-text {
+    font-size: clamp(14px, 3.9vw, 18px) !important;
+    letter-spacing: 0.12em !important;
+  }
+}
