@@ -45,7 +45,6 @@
     <img src="nav-logo-mg.svg" alt="Logo Mario y Gema" />
   </a>
   <a href="#extra-info">Info extra</a>
-  <a href="#rsvp">Confirmación</a>
 </nav>
 
 
@@ -327,141 +326,9 @@
 </section>
 
 <!-- RSVP -->
-<div id="rsvp">
-  <div>
-    <p class="section-label" aria-hidden="true"></p>
-    <h2 class="section-title"><span class="glitch" data-text="CONFIRMACIÓN">CONFIRMACIÓN</span></h2>
-
-    <div id="rsvp-form-wrap">
-      <div class="form-grid" id="the-form">
-
-        <div class="form-group full">
-          <label>¿Asistirás?</label>
-          <div class="radio-group">
-            <label class="radio-option">
-              <input type="radio" name="asistencia" value="si" id="r-si" onchange="toggleAsistencia()" checked/>
-              <span>✓ SÍ ASISTIRÉ</span>
-            </label>
-            <label class="radio-option">
-              <input type="radio" name="asistencia" value="no" id="r-no" onchange="toggleAsistencia()"/>
-              <span>✗ NO PODRÉ ASISTIR</span>
-            </label>
-          </div>
-        </div>
-
-        <div class="guest-block main-guest-block">
-          <div class="form-group">
-            <label>Nombre invitado/a</label>
-            <input type="text" id="nombre-invitado" placeholder="Nombre y apellidos" required/>
-          </div>
-          <div class="form-group" id="intolerancias-main-group">
-            <label>Intolerancias / alergias</label>
-            <input type="text" id="intolerancias" placeholder="Ninguna / indicar alergias"/>
-          </div>
-        </div>
-
-        <!-- Mensaje no asistencia -->
-        <div id="no-asiste-msg">
-          <strong>Qué pena... 😢</strong>
-          Nos hubiera encantado tenerte con nosotros en este día tan especial.
-          Gracias por avisarnos.
-        </div>
-
-        <!-- Sección asistentes: misma estructura para todos los invitados -->
-        <div id="acompanantes-section" class="show">
-
-          <div class="form-group full" style="margin-top:0">
-            <label>¿Vienes con acompañante?</label>
-            <div class="radio-group">
-              <label class="radio-option">
-                <input type="radio" name="company" value="si" id="a-si" onchange="toggleAcompanante()"/>
-                <span>✓ SÍ</span>
-              </label>
-              <label class="radio-option">
-                <input type="radio" name="company" value="no" id="a-no" onchange="toggleAcompanante()" checked/>
-                <span>✗ NO</span>
-              </label>
-            </div>
-          </div>
-
-          <div id="acompanante-fields" class="guest-block" style="display:none;">
-            <div class="form-group">
-              <label>Nombre acompañante</label>
-              <input type="text" id="nombre-acompanante" placeholder="Nombre y apellidos"/>
-            </div>
-            <div class="form-group">
-              <label>Alergias acompañante</label>
-              <input type="text" id="alergias-acompanante" placeholder="Ninguna / indicar alergias"/>
-            </div>
-          </div>
-          
-          <div class="form-group full" style="margin-top:0">
-            <label>¿Vienes a la preboda?</label>
-            <div class="radio-group">
-              <label class="radio-option">
-                <input type="radio" name="preboda" value="si" id="preboda-si"/>
-                <span>✓ SÍ</span>
-              </label>
-              <label class="radio-option">
-                <input type="radio" name="preboda" value="no" id="preboda-no" checked/>
-                <span>✗ NO</span>
-              </label>
-              <label class="radio-option">
-                <input type="radio" name="preboda" value="pendiente" id="preboda-pendiente"/>
-                <span>LO CONFIRMO MÁS TARDE</span>
-              </label>
-            </div>
-          </div>
-
-          <div class="form-group full">
-            <label> ¿Necesitarás autobús para ir a la finca?</label>
-            <select id="autobus">
-              <option value="">Seleccionar</option>
-              <option value="Salida desde Novelda">Salida desde Novelda</option>
-              <option value="Salida desde Aspe">Salida desde Aspe</option>
-              <option value="No necesito autobús">No necesito autobús</option>
-            </select>
-          </div>
-
-          <div class="form-group full" style="margin-top:0">
-            <label>¿Vienes con niños?</label>
-            <div class="radio-group">
-              <label class="radio-option">
-                <input type="radio" name="ninos" value="si" id="ninos-si" onchange="toggleNinos()"/>
-                <span>✓ SÍ</span>
-              </label>
-              <label class="radio-option">
-                <input type="radio" name="ninos" value="no" id="ninos-no" onchange="toggleNinos()" checked/>
-                <span>✗ NO</span>
-              </label>
-            </div>
-          </div>
-
-          <div class="guest-block children-counter-block" id="children-counter-block" style="display:none;">
-            <div class="form-group">
-              <label>Número de niños/as</label>
-              <div class="counter-control counter-control-small" aria-label="Contador de niños/as">
-                <button type="button" class="counter-btn" onclick="changeChildrenCount(-1)" aria-label="Restar niño/a">−</button>
-                <span class="counter-display" id="num-hijos-display">0</span>
-                <button type="button" class="counter-btn" onclick="changeChildrenCount(1)" aria-label="Sumar niño/a">+</button>
-              </div>
-              <input type="hidden" id="num-hijos" value="0"/>
-            </div>
-            <div class="form-group helper-copy">
-              <span>Añade niños/as con el contador.</span>
-            </div>
-          </div>
-
-          <div class="form-group full" id="children-data-group" style="display:none;">
-            <label>Datos de niños/as</label>
-            <div class="companions-list" id="children-list"></div>
-          </div>
-
-          <div class="form-group full">
-  <div class="song-label-row">
-    <label for="cancion">Canción para el festival</label>
-
-    <a 
+ 
+  <div> 
+     <a 
       class="spotify-icon-link"
       href="https://open.spotify.com/playlist/2MaoLCb3vXzmgYKti6CFw9?si=h-qG1VUATIeIZ4E0KyRMQw&utm_source=whatsapp&pi=loNlxshBT4-Dv"
       target="_blank"
@@ -477,16 +344,6 @@
       </svg>
     </a>
   </div>
-
-  <textarea id="cancion" placeholder="Déjanos una canción que te gustaría escuchar..."></textarea>
-</div>
-
-          <div class="form-group full">
-            <label>Mensaje para los novios</label>
-            <textarea id="mensaje-novios" placeholder="Si te apetece puedes dejar un mensajito para los novios..."></textarea>
-          </div>
-
-          <button class="btn-submit" id="btn-confirmar" onclick="submitRSVP()">CONFIRMAR ASISTENCIA</button>
 
 <div class="recovery-area recovery-area-rsvp">
   <button type="button" class="recovery-toggle" onclick="toggleRecoveryArea()">
